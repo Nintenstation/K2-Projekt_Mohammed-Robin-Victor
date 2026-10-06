@@ -4,6 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hej och välkommen till evenemang listan för vårt kommun!");
+        Console.WriteLine("Hej och välkommen till evenemangslistan för vår kommun!");
     }
 }
