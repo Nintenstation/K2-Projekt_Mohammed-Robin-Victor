@@ -12,7 +12,7 @@ Användare vill ha ett sätt att hitta, posta, och dela information om kommande 
 
 ## Kundvärde
 
-Användaren får ett enkelt sätt att hitta och söka efter lokala evenemang, se information om dem och registrera sig. 
+För besökare som har svårt att hitta lokala evenemang hjälper vår produkt dem att enkelt hitta, söka och anmäla sig till evenemang så att de lättare kan hitta något de är intresserade av.
 
 ## Produktmål
 
