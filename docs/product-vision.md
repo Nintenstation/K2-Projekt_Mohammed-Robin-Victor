@@ -16,7 +16,7 @@ För besökare som har svårt att hitta lokala evenemang hjälper vår produkt d
 
 ## Produktmål
 
-Att göra det enkelt för användaren att hitta och anmäla sig till lokala evenemang.
+-Att göra det enkelt för användaren att hitta och anmäla sig till lokala evenemang.
 -Kunna se kommande evenemang
 -Söka efter evenemang 
 -Filtrera evenemang
