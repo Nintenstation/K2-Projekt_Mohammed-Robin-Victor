@@ -36,22 +36,23 @@ Besökare:
 	PkBesökareId
 	- Namn
 	- Telefon
-	- Gatuaddress
+	- Gatuadress
 	- Mejl
 
 ## Viktiga relationer & antaganden
 
 **Anmälning**: En eller flera anmälningar måste vara kopplad till en besökare, och en eller flera anmälningar måste vara kopplad till en 
-evenemang. Använd detta som kopplingsentitet mellan Besökare och evenmang, eftersom besökare och evenemang har M:N relationer. 
+evenemang. Använd detta som kopplingsentitet mellan Besökare och evenemang, eftersom besökare och evenemang har M:N relationer. 
 (Besökare **1:N** Anmälning, Anmälning **N:1** Evenemang). **MANDATORY** relation med Besökare och Evenemang. 
 
-**Evenemang & Besökare**: En eller flera besökare kan vara på en evenemang, men många evenemang kan innehålla flera besökare också. 
+**Evenemang & Besökare:** En besökare kan anmäla sig till många evenemang och ett evenemang kan ha många besökare. Därför har Besökare och 
+Evenemang en M:N-relation som löses genom Anmälning.
 (Besökare **M:N** Evenemang <-- Problem!). Evenemang: **OPTIONAL** relation med Anmälning & kategori, **MANDATORY** relation med arrangör. 
 
-**Kategori**: En kategori kan tillhöra många evenemang, men evenemang kan endast ha en kategori. (Kategori **1:N** Evenemang). 
+**Kategori:** En kategori kan ha noll eller många evenemang, men varje evenemang måste tillhöra exakt en kategori. (Kategori 1:N Evenemang).
 **OPTIONAL** relation med evenemang. 
 
-**Arrangör**: En arrangör kan ansvara för många evenemang, men evenemang kan endast ha en enda arrangör. (Arrangör **1:N** Evenemang). 
+**Arrangör:** En arrangör kan ansvara för noll eller många evenemang, men varje evenemang måste ha exakt en arrangör. (Arrangör 1:N Evenemang).
 **OPTIONAL** relation med evenemang.
 
 ## Öppna frågor
