@@ -36,7 +36,6 @@ Besökare:
 	PkBesökareId
 	- Namn
 	- Telefon
-	- Gatuadress
 	- Mejl
 
 ## Viktiga relationer & antaganden
