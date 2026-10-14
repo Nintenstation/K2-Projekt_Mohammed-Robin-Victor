@@ -6,7 +6,7 @@ Relational database (SQL database)
 
 Anmälning:
 	PkAnmälningId
-	FkEvenemangsId
+	FkEvenemangId
 	FkBesökareId
 	- Anmälningsdatum
 	- AntalPlatser
