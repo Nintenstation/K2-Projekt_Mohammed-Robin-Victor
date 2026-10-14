@@ -1,18 +1,28 @@
 # Normalisering – från ER-modell v1 till v2
 
 ## Avgränsning och underlag
-- Team: Team Malmö
-- Vald del av projektet: Hela ER-diagrammet och vår konceptuella databas ska granskas i detta dokument.
-- Tabeller som granskas: Besökare, Evenemang, Anmälning, Arrangör, Kategori
-- Antaganden och verksamhetsregler: [exempelvis om samma kombination får förekomma flera gånger]
-- Före-modell v1: [länk till diagram eller fil]
-- Efter-modell v2: [länk till diagram eller fil]
-- Exempeldata: [länk till delat kalkylark eller normalisering-exempel.xlsx]
+- **Team**: Team Malmö
+  
+- **Vald del av projektet**: Hela ER-diagrammet och vår konceptuella databas ska granskas i detta dokument.
+  
+- **Tabeller som granskas**: Besökare, Evenemang, Anmälning, Arrangör, Kategori
+  
+- **Antaganden och verksamhetsregler**: Besökare kan anmäla sig till flera evenemang. En arrangör kan ansvara för flera evenemang. Varje evenemang måste ha
+  en kategori och en arrangör. Besökare måste ange kontaktuppgifter (namn, mejl, telefon) för att kunna göra en anmälning till en evenamng. Varje entitet ska
+  kunna identifieras, genom att varje entitet har en unik primärnyckel för varje rad i deras tabell.
+  
+- **Före-modell v1**: https://res.cloudinary.com/dtz0urit6/image/upload/q_auto:best,f_jpg/cloudinary-tools-uploads/kn4chbqwydshzo9mrylz
+- **Efter-modell v2**: https://res.cloudinary.com/dtz0urit6/image/upload/q_auto:best,f_jpg/cloudinary-tools-uploads/kn4chbqwydshzo9mrylz
+- **Exempeldata**: [länk till delat kalkylark eller normalisering-exempel.xlsx]
 
 ## 1. Före-läge – v1
 | Tabell | Vad representerar en rad? | Primärnyckel (PK) | Främmande nycklar (FK) |
 | --- | --- | --- | --- |
-| [tabellnamn] | [beskrivning] | [kolumn eller kombination] | [kolumn → refererad tabell och kolumn] |
+| Besökare | En rad representerar vilka besökare som har anmält sig och på det sättet deltagit i webbapplikationen. | BesökarID | Ingen |
+| Anmälning | En rad representerar en anmälning som besökare har gjort och vilken eller vilka evenemang de har anmält sig till. | AnmälningsID | BesökarID & EvenemangID |
+| Evenemang | En rad representerar vilket evenemang den är och dess information. | EvenemangID | KategoriID & ArrangörID |
+| Kategori | En rad representerar en viss kategori och dess namn. | KategoriID | Ingen |
+| Arrangör | En rad representerar arrangören och deras kontaktuppgifter (namn, mejl, telefon). | ArrangörID | Ingen |
 
 ### Exempeldata och upprepning
 - Exempelrader finns i: [flikar med prefixet v1_]
@@ -62,4 +72,5 @@ inte en implementerad databas eller automatiska PK/FK-regler.
 ## 5. Sammanfattning och kvarstående frågor
 - Viktigaste slutsatsen: [vad visar granskningen?]
 - Minskad redundans eller undvikna anomalier: [konkret resultat]
-- Kvarstående frågor eller antaganden att kontrollera: [ange vilka, eller inga]
+- **Kvarstående frågor eller antaganden att kontrollera**: "Vi behöver verifiera “antal besökare” och hur det ska hanteras om ett evenemang har begränsade platser.
+".
