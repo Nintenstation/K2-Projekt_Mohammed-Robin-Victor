@@ -1,4 +1,4 @@
-Lägg in testdata(i denna ordning)
+**Lägg in testdata(i denna ordning)**
 
 Kategori
 
@@ -49,3 +49,7 @@ VALUES
 (4, 4, '2026-10-19', 3);
 
 
+
+**Relevant kantfall**
+  
+(N'Movie Night', N'En sen natt där besökare kollar på en film', '2026-12-28', '23:59:59.5999999', N'Malmö Filmfestival' ,259.00, 3, 1);
