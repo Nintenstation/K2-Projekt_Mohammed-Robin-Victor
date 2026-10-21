@@ -1,5 +1,6 @@
 /*
 Fråga: Evenemang och respektive arrangör visas och sorteras från tidigast starttid.
+Typ av fråga: JOIN-query.
 En resultatrad representerar: Informationen för ett evenemang och arrangörens kontaktuppgifter.
 Kontroll: Victors (arrangören) data visas upp för evenemanget BigSlap, som är ansluten till Victors arrangörId.
 */
@@ -20,6 +21,7 @@ ORDER BY e.Tid
 
 /*
 Fråga: Filtrera antal evenemang per kategori.
+Typ av fråga: AGGREGAT-query.
 En resultatrad representerar: Namnet på en viss kategori (utan dess Id eller duplikation) som grupp, och hur många gånger den används i Evenemang tabellen. 
 Kontroll: Kategorin Festival finns som en grupp i resultattabellen, och i kolumnen skapad av Count-aggregaten är det “2”, som visar att Festival användes för två evenemang.
 */
