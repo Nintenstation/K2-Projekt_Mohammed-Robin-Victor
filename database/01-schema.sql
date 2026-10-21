@@ -1,4 +1,5 @@
-1.Kommando för att skapa databas
+--1.Kommando för att skapa databas
+    
 CREATE DATABASE EventFlow
 
 -- 2. Skapa tabeller (i denna ordning)
