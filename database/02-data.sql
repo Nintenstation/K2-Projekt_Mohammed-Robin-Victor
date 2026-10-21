@@ -1,6 +1,6 @@
-**Lägg in testdata(i denna ordning)**
+/*Lägg in testdata(i denna ordning)*/
 
-Kategori
+--Kategori
 
 INSERT INTO Kategori (Namn)
 VALUES
@@ -9,7 +9,7 @@ VALUES
         (N'Kultur'),
         (N'Familj');
 
-Arrangör
+--Arrangör
 
 INSERT INTO Arrangör (Namn, Telefon, Email)
 VALUES
@@ -17,7 +17,7 @@ VALUES
         (N'Malmö Idrottsförening', N'040234567', N'idrott@example.com'),
         (N'Event Malmö', N'040345678', N'event@example.com');
 
-Besökare
+--Besökare
 
 INSERT INTO Besökare (Namn, Email, Telefon)
 VALUES
@@ -28,7 +28,7 @@ VALUES
 
 
 
-Evenemang
+--Evenemang
 
 INSERT INTO Evenemang
 (Titel, Beskrivning, Datum, Tid, Plats, Pris, KategoriId, ArrangörId)
@@ -39,7 +39,7 @@ VALUES
         (N'Familjedag', N'Aktiviteter för hela familjen.', '2026-12-12', '11:00', N'Folkets Park', 0.00, 4, 3),
         (N'Movie Night', N'En sen natt där besökare kollar på en film', '2026-12-28', '23:59:5999999', N'Malmö Filmfestival', 259.00, 3, 1);
 
-Anmälning
+--Anmälning
 
 INSERT INTO Anmälning (BesökareId, EvenemangId, Anmälningsdatum, AntalPlatser)
 VALUES
