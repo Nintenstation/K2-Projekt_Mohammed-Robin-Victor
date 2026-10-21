@@ -1,16 +1,16 @@
-## Daily Scrum – datum 26-10-14
+## Daily Scrum – datum 26-10-21
 
 ### Framsteg mot sprintmålet
 
-Vi skapade förläge för vårt ER-diagram.
+Vi har skapat en JOIN-fråga och en AGGREGAT-fråga för vårt kommande databas.
 
 ### Arbete till nästa avstämning
 
-Vi ska bland annat normalisera vårt diagram och koppla modellen till backloggen.
+Implementera en relationsdatabas och dess schema för vår webbapplikation, baserat på vår ER-diagram.
 
 ### Hinder eller risker
 
-Möjlig tidspress, vi har paralellt inlämningsuppgift med chas career också.
+Möjliga hinder (som exempelvis misslyckad frågor) och tidspress.
 
 ### Hjälp eller beslut som behövs
 
@@ -18,4 +18,4 @@ Inget av ovanstående.
 
 ### Förändring i planen eller tavlan
 
-Skapa fler user storys samt dokumentera. 
+Arbeta på user story för relationsdatabas.
