@@ -51,9 +51,9 @@ VALUES
 
 
 
-**Relevant kantfall
+/*Relevant kantfall
   
 INSERT INTO Evenemang
 (Titel, Beskrivning, Datum, Tid, Plats, Pris, KategoriId, ArrangörId)
 VALUES
-(N'Movie Night', N'En sen natt där besökare kollar på en film', '2026-12-28', '23:59:00', N'Malmö Filmfestival', 259.00, 3, 1);**
+(N'Movie Night', N'En sen natt där besökare kollar på en film', '2026-12-28', '23:59:00', N'Malmö Filmfestival', 259.00, 3, 1);*/
