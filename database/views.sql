@@ -37,4 +37,4 @@ Varje rad representerar en kategori och dess antal evenemang.
 **Hur har vyn testats?**
 Vi har testat vyn genom att hämta resultatet och sortera antalet evenemang per kategori i fallande ordning.
 Vi har även kontrollerat resultatet mot evenemangen i databasen. 
-Vi använder LEFT JOIN för att även kunna visa kategorier utan evenemang, vilka ska visas med antalet 0, i nuläget har vi inga kategorier med 0 evenemang*/
+Vi använder LEFT JOIN för att även kunna visa kategorier utan evenemang, vilka ska visas med antalet 0.*/
