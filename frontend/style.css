@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    background-color: bisque;
+}
+
+nav {
+    border: 1px solid black;
+}
+
+footer {
+    background-color: gray;
+    
+}
+
+footer p {
+    color: white;
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.event-card {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 2px solid black;
+    background: white;
+}
+
+/*
+SKAPA MEDIA QUERY!!
+*/
