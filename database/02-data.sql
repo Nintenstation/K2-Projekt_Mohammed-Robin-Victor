@@ -7,7 +7,8 @@ VALUES
         (N'Musik'),
         (N'Sport'),
         (N'Kultur'),
-        (N'Familj');
+        (N'Familj'),
+        (N'Äventyr');
 
 --Arrangör
 
