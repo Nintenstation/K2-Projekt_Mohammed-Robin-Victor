@@ -31,7 +31,7 @@ BEGIN
         ON e.KategoriId = k.KategoriId
     WHERE (e.Titel) LIKE '%' + (@Sökord) + '%' 
     AND LEN(TRIM(@Sökord)) > 0
-    ORDER BY e.Datum ASC, e.Tid ASC;
+    ORDER BY e.Datum, e.Tid;
 END;
 GO
 
