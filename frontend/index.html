@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Eventflow</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <h1>Eventflow</h1>            
+            <nav>
+                <ul>
+                    <li><a href=#event>Evenemang</a></li>
+                    <li><a href=#booking>Boka dig till evenemang</a></li>
+                    <li><a href=#about>Om Eventflow</a></li>
+                    <li><a href=#contact>Kontakta oss</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="about">
+                <h2>Fantastiska evenemang i Malmö!</h2>
+                <p>Hitta en eller flera evenemang i malmö, och anmäl dig till den du är intresserad av.</p>
+            </section>
+
+            <section id="event">
+                <h2>Aktuella evenemang</h2>
+                <div class="event-list">
+                    <article class="event-card">
+                        <h3>Livekonsert</h3>
+                        <p><strong>Beskrivning:</strong> En kväll med livemusik.</p>
+                        <p><strong>Startdatum och tid:</strong> 2026-11-15, 18:30</p>
+                        <p><strong>Plats:</strong> Malmö Kulturhus</p>
+                        <p><strong>Pris:</strong> 150.00 kr</p>
+                    </article>
+                </div>
+                <!-- Lägg flera evenemang i form av kort -->
+            </section>
+
+            <section>
+                <h2>Boka/anmäl dig till evenemenang här</h2>
+
+                <form>
+                    <div>
+                        <label for="name">Namn:</label>
+                        <input type="name" id="name" name="Namn">
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="Email">
+                    </div>
+                    <div>
+                        <label for="telefon">Telefonnummer:</label>
+                        <input type="text" id="telefon" name="Telefon">
+                    </div>
+                    <button>Skicka in</button>
+                </form>
+            </section>
+        </main>
+
+        <footer id="contact">
+            <p>Frågor och funderingar? Ställ dem via Eventflow@example.se</p>
+        </footer>
+    </body>
+</html>
