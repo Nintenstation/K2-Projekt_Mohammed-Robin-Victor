@@ -1,108 +1,131 @@
 <!DOCTYPE html>
-
 <html lang="sv">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Eventflow</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventflow</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
 
-    <body>
-        <header>
-            <h1>Eventflow</h1>            
-            <nav>
-                <ul>
-                    <li><a href=#event>Evenemang</a></li>
-                    <li><a href=#booking>Boka dig till evenemang</a></li>
-                    <li><a href=#about>Om Eventflow</a></li>
-                    <li><a href=#contact>Kontakta oss</a></li>
-                </ul>
-            </nav>
-        </header>
+<body>
 
-        <main>
-            <section id="about">
-                <h2>Fantastiska evenemang i Malmö!</h2>
-                <p>Hitta en eller flera evenemang i malmö, och anmäl dig till den du är intresserad av.</p>
-            </section>
+    <header>
+        <h1>Eventflow</h1>
+        <p>Hitta ditt nästa evenemang!</p>
 
-            <section id="event">
-                <h2>Aktuella evenemang</h2>
-                <div class="event-list">
-                    <article class="event-card">
-                        <h3>Livekonsert</h3>
-                        <p><strong>Beskrivning:</strong> En kväll med livemusik.</p>
-                        <p><strong>Startdatum och tid:</strong> 2026-11-15, 18:30</p>
-                        <p><strong>Plats:</strong> Malmö Kulturhus</p>
-                        <p><strong>Pris:</strong> 150.00 kr</p>
+        <nav>
+            <a href="#events">Evenemang</a>
+            <a href="#booking">Boka här</a>
+        </nav>
+    </header>
 
-                        <button type="button">Boka här & läs mer</button>
-                    </article>
-                    <article class="event-card">
-                        <h3>Fotbollsturnering</h3>
-                        <p><strong>Beskrivning</strong> En lokal fotbollsturnering.</p>
-                        <p><strong>Startdatum och tid:</strong> 2026-11-20, 10:00</p>
-                        <p><strong>Plats:</strong> Malmö idrottsplats</p>
-                        <p><strong>Pris:</strong> 50.00 kr</p>
+    <main>
 
-                        <button type="button">Boka här & läs mer</button>
-                    </article>
-                    <article class="event-card">
-                        <h3>Konstutställning</h3>
-                        <p><strong>Beskrivning:</strong> En utställning med lokal konst.</p>
-                        <p><strong>Startdatum och tid:</strong> 2026-12-05, 13:00</p>
-                        <p><strong>Plats:</strong> Galleri Malmö</p>
-                        <p><strong>Pris:</strong> 0.00 kr</p>
+        <section id="events">
+            <h2>Kommande evenemang</h2>
 
-                        <button type="button">Boka här & läs mer</button>
-                    </article>
-                    <article class="event-card">
-                        <h3>Familjedag</h3>
-                        <p><strong>Beskrivning:</strong> Aktiviteter för hela familjen.</p>
-                        <p><strong>Startdatum och tid:</strong> 2026-12-12, 11:00</p>
-                        <p><strong>Plats:</strong> Folkets park</p>
-                        <p><strong>Pris:</strong> 0.00 kr</p>
+        <div class="event-list">
 
-                        <button type="button">Boka här & läs mer</button>
-                    </article>
-                    <article class="event-card">
-                        <h3>Movie Night</h3>
-                        <p><strong>Beskrivning:</strong> En sen natt där besökare kollar på en film.</p>
-                        <p><strong>Startdatum och tid:</strong> 2026-12-28, 23:59</p>
-                        <p><strong>Plats:</strong> Malmö filmfestival</p>
-                        <p><strong>Pris:</strong> 259.00 kr</p>
+        <div class="event-card">
+                <h3>Livekonsert</h3>
+                <p>Upplev livemusik och en härlig kväll.</p>
 
-                        <button type="button">Boka här & läs mer</button>
-                    </article>
+                <button type="button" class="book-button"
+                    data-event="Livekonsert">
+                    Boka här & läs mer
+                </button>
+            </div>
 
+            <div class="event-card">
+                <h3>Fotbollsturnering</h3>
+                <p>Kom och upplev spänningen på planen.</p>
+
+                <button type="button" class="book-button"
+                    data-event="Fotbollsturnering">
+                    Boka här & läs mer
+                </button>
+            </div>
+
+            <div class="event-card">
+                <h3>Konstutställning</h3>
+                <p>Upptäck konst och kreativa upplevelser.</p>
+
+                <button type="button" class="book-button"
+                    data-event="Konstutställning">
+                    Boka här & läs mer
+                </button>
+            </div>
+
+            <div class="event-card">
+                <h3>Familjedag</h3>
+                <p>En rolig dag för hela familjen.</p>
+
+                <button type="button" class="book-button"
+                    data-event="Familjedag">
+                    Boka här & läs mer
+                </button>
+            </div>
+
+            <div class="event-card">
+                <h3>Movie Night</h3>
+                <p>Samlas för en mysig filmkväll.</p>
+
+                <button type="button" class="book-button"
+                    data-event="Movie Night">
+                    Boka här & läs mer
+                </button>
+            </div>
+
+        </section>
+
+        <section id="booking">
+            <h2>Boka/anmäl dig till evenemang här</h2>
+
+            <form id="booking-form">
+
+                <div>
+                    <label for="event-choice">
+                        Välj evenemang:
+                    </label>
+
+                    <select id="event-choice" name="event" required>
+                        <option value="">Välj ett evenemang</option>
+                        <option value="Livekonsert">Livekonsert</option>
+                        <option value="Fotbollsturnering">Fotbollsturnering</option>
+                        <option value="Konstutställning">Konstutställning</option>
+                        <option value="Familjedag">Familjedag</option>
+                        <option value="Movie Night">Movie Night</option>
+                    </select>
                 </div>
-             
-            </section>
 
-            <section>
-                <h2>Boka/anmäl dig till evenemenang här</h2>
+                <div>
+                    <label for="name">Namn:</label>
+                    <input type="text" id="name" name="Namn">
+                </div>
 
-                <form>
-                    <div>
-                        <label for="name">Namn:</label>
-                        <input type="name" id="name" name="Namn">
-                    </div>
-                    <div>
-                        <label for="email">E-mail:</label>
-                        <input type="email" id="email" name="Email">
-                    </div>
-                    <div>
-                        <label for="telefon">Telefonnummer:</label>
-                        <input type="text" id="telefon" name="Telefon">
-                    </div>
-                    <button>Skicka in</button>
-                </form>
-            </section>
-        </main>
+                <div>
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="Email">
+                </div>
 
-        <footer id="contact">
-            <p>Frågor och funderingar? Ställ dem via Eventflow@example.se</p>
-        </footer>
-    </body>
+                <div>
+                    <label for="telefon">Telefonnummer:</label>
+                    <input type="tel" id="telefon" name="Telefon">
+                </div>
+
+                <button type="submit">Skicka in</button>
+
+                <p id="confirmation" aria-live="polite"></p>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Eventflow</p>
+    </footer>
+
+</body>
 </html>
