@@ -27,4 +27,4 @@ Nej
 ### Behöver en story delas för att kunna bli klar?
 Möjligtvis #6 
 ### Har någon arbetat isolerat för länge?
-Nej
+Under de allra flesta tillfällen så har arbetet varit uppdelad så att alla kan arbeta ensamt, men sedan ska man presentera och sen ta sig an en större uppgift tillsammans. Med andra ord sker ständig kommunikation mellan kamraterna.
