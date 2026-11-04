@@ -1,16 +1,16 @@
-## Daily Scrum – datum 26-10-28
+## Daily Scrum – datum 26-11-04
 
 ### Framsteg mot sprintmålet
 
-Vi har skapat en testad och fungerande databas, med flera frågor som använder SQL-objekt, som JOIN och AGGREGAT.
+Vi har ändrat alla tabellnamn till engelska. Skapat flera kort i HTML-strukturen. fixat en media query och fixat spårhetstabellen.
 
 ### Arbete till nästa avstämning
 
-Skapa SQL-view, procedure, och trigger, samt en semantisk och responsiv frontend webbsida baserad på vår eventflow webbapplikation.
+Välja ett interaktivt användarflöde, implementerat formulärhantering och klientvalidering, uppdaterat DOM utan omladdning, testa normalfall och felaktig inmatning och försöka jobba med mindre pull-requests.
 
 ### Hinder eller risker
 
-Tidspress, mycket att göra, och möjliga kunskapsluckor som behöver arbetas vid senare tillfällen.
+Sjukdom och tidsbrist.
 
 ### Hjälp eller beslut som behövs
 
@@ -18,21 +18,13 @@ Inget just nu.
 
 ### Förändring i planen eller tavlan
 
-Skapat individuella user stories för SQL-view, procedure, och trigger.
+Vi flyttade user story #10 till In progress (Interaktiva formulär och dynamiskt innehåll)
 
-### Andra frågor:
-
-Vad är Done sedan senaste avstämningen?:
-Att göra queries för att skapa vår databas, samt dess schema (struktur) och raderna för varje tabell. Sedan skapa vi en JOIN-fråga, och en AGGREGAT-fråga.
-
-Vad behöver avslutas idag?:
-Att skapa och testa SQL-view, procedure, trigger, men också en semantisk och responsiv frontend (en webbsida).
-
-Finns hinder i SQL-, trigger- eller frontendarbetet?:
-Tiden är kanske inte tillräckligt för att vara klar med ett enda pass.
-
-Väntar något på review?:
-Nej, inte i början av dagens arbete.
-
-Behöver WIP, ansvar eller prioritering ändras?:
-User story för semantisk och responsiv layout ska flyttas till WIP. Vi ska också skapa en user story för SQL-view, procedure, och trigger.
+### Har teamet för mycket i `In Progress`?
+Nej
+### Väntar någon Pull Request på review?
+Nej
+### Behöver en story delas för att kunna bli klar?
+Möjligtvis #6 
+### Har någon arbetat isolerat för länge?
+Under de allra flesta tillfällen så har arbetet varit uppdelad så att alla kan arbeta ensamt, men sedan ska man presentera och sen ta sig an en större uppgift tillsammans. Med andra ord sker ständig kommunikation mellan kamraterna.
