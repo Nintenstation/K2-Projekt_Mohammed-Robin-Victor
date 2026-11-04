@@ -20,3 +20,11 @@ Inget just nu.
 
 Vi flyttade user story #10 till In progress (Interaktiva formulär och dynamiskt innehåll)
 
+### Har teamet för mycket i `In Progress`?
+Nej
+### Väntar någon Pull Request på review?
+Nej
+### Behöver en story delas för att kunna bli klar?
+Möjligtvis #6 
+### Har någon arbetat isolerat för länge?
+Nej
