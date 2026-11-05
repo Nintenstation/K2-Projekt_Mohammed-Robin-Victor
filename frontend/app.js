@@ -26,12 +26,21 @@ form.addEventListener("submit", function(event) {
     const phone = document.querySelector("#telefon").value.trim();
     const selectedEvent = eventChoice.value;
 
-//Kontrollerar att fälten är ifyllda.
+//Kontrollerar att fälten är ifyllda. Dessutom kontrollerar om telefonnummer innehåller icke-numeriska värde och validerar dess längd.
     if (name === "" || email === "" || phone === "" || selectedEvent === "") {
         confirmation.textContent = "Fyll i alla fält!";
         confirmation.style.color = "red";
         return;
-    }
+    } else if (isNaN(phone)) {
+        confirmation.textContent = "Telefon ska innehålla endast siffror!";
+        confirmation.style.color = "red";
+        return;
+    } else if (phone.length < 8 || phone.length > 14) {
+        confirmation.textContent = `Telefonnumret ska vara mellan 8 och 14 siffror långt! Ditt telefonnummer längd: ${phone.length}`;
+        confirmation.style.color = "red";
+        return;
+    } 
+        
 
 //Visar bokningsbekräftelse
     confirmation.textContent = "DU ÄR ANMÄLD TILL " + selectedEvent + "!";
