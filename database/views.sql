@@ -4,26 +4,25 @@ GO
 --Vy som visar hur många evenemang varje kategori har, sorterat från flest till minst--
 
 --Skapa vyn--
-
-CREATE VIEW vw_AntalEvenemangPerKategori
+CREATE VIEW vw_EventCountPerCategory
 AS
 SELECT
-    c.KategoriId,
-    c.Namn AS Kategorinamn,
-    COUNT(e.EvenemangId) AS AntalEvenemang
+    c.CategoryId AS KategoriId,
+    c.Name AS Kategorinamn,
+    COUNT(e.EventId) AS AntalEvenemang
 FROM Categories AS c
 LEFT JOIN Events AS e
-  ON c.KategoriId = e.KategoriId
+  ON c.CategoryId = e.CategoryId
 GROUP BY
-    c.KategoriId,
-    c.Namn;
+    c.CategoryId,
+    c.Name;
 GO
 
---Test vyn--
-
+-- Test vyn --
 SELECT *
-FROM vw_AntalEvenemangPerKategori
+FROM vw_EventCountPerCategory
 ORDER BY AntalEvenemang DESC;
+GO
 
 --Dokumentation--
 

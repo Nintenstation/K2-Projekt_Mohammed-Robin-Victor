@@ -3,7 +3,7 @@ USE EventFlow;
 GO
 
 -- Kategori
-INSERT INTO Categories (Namn)
+INSERT INTO Categories (Name)
 VALUES  
     (N'Musik'),
     (N'Sport'),
@@ -12,14 +12,14 @@ VALUES
     (N'Äventyr');
 
 -- Arrangör
-INSERT INTO Organizers (Namn, Telefon, Email)
+INSERT INTO Organizers (Name, Phone, Email)
 VALUES  
     (N'Malmö Kulturhus', N'040123456', N'kultur@example.com'),
     (N'Malmö Idrottsförening', N'040234567', N'idrott@example.com'),
     (N'Event Malmö', N'040345678', N'event@example.com');
 
 -- Besökare
-INSERT INTO Attendees (Namn, Email, Telefon)
+INSERT INTO Attendees (Name, Email, Phone)
 VALUES  
     (N'Anna Andersson', N'anna@example.com', N'0701111111'),
     (N'Erik Svensson', N'erik@example.com', N'0702222222'),
@@ -27,7 +27,7 @@ VALUES
     (N'Johan Karlsson', N'johan@example.com', N'0704444444');
 
 -- Evenemang
-INSERT INTO Events (Titel, Beskrivning, Datum, Tid, Plats, Pris, KategoriId, ArrangörId)
+INSERT INTO Events (Title, Description, EventDate, EventTime, Location, Price, CategoryId, OrganizerId)
 VALUES  
     (N'Livekonsert', N'En kväll med livemusik.', '2026-11-15', '18:30', N'Malmö Kulturhus', 150.00, 1, 1),
     (N'Fotbollsturnering', N'En lokal fotbollsturnering.', '2026-11-20', '10:00', N'Malmö Idrottsplats', 50.00, 2, 2),
@@ -36,7 +36,7 @@ VALUES
     (N'Movie Night', N'En sen natt där besökare kollar på en film', '2026-12-28', '23:59:59.99', N'Malmö Filmfestival', 259.00, 3, 1);
 
 -- Anmälning
-INSERT INTO Registrations (BesökareId, EvenemangId, Anmälningsdatum, AntalPlatser)
+INSERT INTO Registrations (AttendeeId, EventId, RegistrationDate, Quantity)
 VALUES  
     (1, 1, '2026-10-19', 2),
     (2, 1, '2026-10-19', 1),
@@ -44,10 +44,7 @@ VALUES
     (3, 3, '2026-10-19', 2),
     (4, 4, '2026-10-19', 3);
 
-
-/*Relevant kantfall
-  
-INSERT INTO Evenemang
-(Titel, Beskrivning, Datum, Tid, Plats, Pris, KategoriId, ArrangörId)
-VALUES
-(N'Movie Night', N'En sen natt där besökare kollar på en film', '2026-12-28', '23:59:00', N'Malmö Filmfestival', 259.00, 3, 1);*/
+/*Relevant kantfall  
+INSERT INTO Events (Title, Description, EventDate, EventTime, Location, Price, CategoryId, OrganizerId)
+VALUES (N'Movie Night', N'En sen natt där besökare kollar på en film', '2026-12-28', '23:59:00', N'Malmö Filmfestival', 259.00, 3, 1);
+*/

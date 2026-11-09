@@ -1,3 +1,6 @@
+USE EventFlow;
+GO
+
 /*
 Fråga: Evenemang och respektive arrangör visas och sorteras från tidigast starttid.
 Typ av fråga: JOIN-query.
@@ -5,19 +8,20 @@ En resultatrad representerar: Informationen för ett evenemang och arrangörens 
 Kontroll: Victors (arrangören) data visas upp för evenemanget BigSlap, som är ansluten till Victors arrangörId.
 */
 SELECT
-	e.Titel AS EvenemangsTitel,
-	e.Beskrivning,
-	e.Datum,
-	e.Tid AS StartTid,
-	e.Plats,
-	e.Pris,
-	o.Namn AS ArrangörensNamn,
-	o.Email AS ArrangörensMejl,
-	o.Telefon AS ArrangörensTelefon
+    e.Title AS EvenemangsTitel,
+    e.Description AS Beskrivning,
+    e.EventDate AS Datum,
+    e.EventTime AS StartTid,
+    e.Location AS Plats,
+    e.Price AS Pris,
+    o.Name AS ArrangörensNamn,
+    o.Email AS ArrangörensMejl,
+    o.Phone AS ArrangörensTelefon
+
 FROM Events AS e
 INNER JOIN Organizers AS o
-	ON e.ArrangörId = o.ArrangörId
-ORDER BY e.Tid;
+    ON e.OrganizerId = o.OrganizerId
+ORDER BY e.EventTime;
 
 /*
 Fråga: Filtrera antal evenemang per kategori.
@@ -26,18 +30,11 @@ En resultatrad representerar: Namnet på en viss kategori (utan dess Id eller du
 Kontroll: Kategorin Festival finns som en grupp i resultattabellen, och i kolumnen skapad av Count-aggregaten är det “2”, som visar att Festival användes för två evenemang.
 */
 SELECT
-	c.Namn AS KategoriNamn,
-	COUNT(e.EvenemangId) AS AntalEvenemang
+    c.Name AS KategoriNamn,
+    COUNT(e.EventId) AS AntalEvenemang
+
 FROM Categories AS c
 INNER JOIN Events AS e
-	ON e.KategoriId = c.KategoriId
-GROUP BY c.Namn
-ORDER BY c.Namn;
-
-
-
-
-
-
-
-
+    ON e.CategoryId = c.CategoryId
+GROUP BY c.Name
+ORDER BY c.Name;
