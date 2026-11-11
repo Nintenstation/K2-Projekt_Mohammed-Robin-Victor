@@ -1,4 +1,4 @@
-## Daily Scrum – datum 26-11-04
+## Daily Scrum – datum 26-11-11
 
 ### Framsteg mot sprintmålet
 
