@@ -2,15 +2,15 @@
 
 ### Framsteg mot sprintmålet
 
-Vi har ändrat alla tabellnamn till engelska. Skapat flera kort i HTML-strukturen. fixat en media query och fixat spårhetstabellen.
+Vi har skapat en fungerande javascript kod med felhantering för att kunna hantera HTML-formulär och att få värde från användaren. Javascript koden har felhantering för att kunna se om användaren skickar in giltiga värde.
 
 ### Arbete till nästa avstämning
 
-Välja ett interaktivt användarflöde, implementerat formulärhantering och klientvalidering, uppdaterat DOM utan omladdning, testa normalfall och felaktig inmatning och försöka jobba med mindre pull-requests.
+Att kunna implentera en fetch API och Asynkron programmering i vår frontend-sida genom Javascript, för att kunna hämta data från JSON-fil och presentera till användare.
 
 ### Hinder eller risker
 
-Sjukdom och tidsbrist.
+Tidsbrist och inte alla är på plats.
 
 ### Hjälp eller beslut som behövs
 
@@ -18,13 +18,8 @@ Inget just nu.
 
 ### Förändring i planen eller tavlan
 
-Vi flyttade user story #10 till In progress (Interaktiva formulär och dynamiskt innehåll)
+Vi ska skapa en mer specifik user story för API:n.
 
-### Har teamet för mycket i `In Progress`?
-Nej
-### Väntar någon Pull Request på review?
-Nej
-### Behöver en story delas för att kunna bli klar?
-Möjligtvis #6 
-### Har någon arbetat isolerat för länge?
-Under de allra flesta tillfällen så har arbetet varit uppdelad så att alla kan arbeta ensamt, men sedan ska man presentera och sen ta sig an en större uppgift tillsammans. Med andra ord sker ständig kommunikation mellan kamraterna.
+### Sammanfattning
+
+Vi ska försöka bli klar med att kunna implementera en API för fetch och implementera en asynkron-baserad programmering, för att kunna skapa en ny funtion på vår webbsida. Vi ska försöka göra review på varandras arbete, och koden ska kunna vara tydligt och begripligt för alla.
