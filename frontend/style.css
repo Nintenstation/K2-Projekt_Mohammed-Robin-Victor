@@ -65,6 +65,11 @@ button:hover {
     background-color: #4d5389;
 }
 
+#api-event-list {
+  white-space: pre-line;
+}
+
+
 
 @media (min-width: 700px) {
     .event-list {
