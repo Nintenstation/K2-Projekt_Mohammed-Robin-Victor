@@ -80,6 +80,7 @@ Venue.textContent = "Plats: ";
 async function loadEventList(){
     apiStatus.textContent = "Hämtar en lista av evenemang...";
     apiEventsList.replaceChildren(); 
+    apiLoadButton.disabled = true;
 
     let errorMessage = "Evenemang kunde inte hämtas! Försök igen.";
 
@@ -135,6 +136,8 @@ async function loadEventList(){
     } catch(error) {
         console.error("Kunde inte hämta evenemang.");
         apiStatus.textContent = errorMessage;
+    } finally {
+        apiLoadButton.disabled = false;
     }
 }
 
