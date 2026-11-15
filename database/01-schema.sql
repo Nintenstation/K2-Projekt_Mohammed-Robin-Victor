@@ -41,6 +41,7 @@ CREATE TABLE Events
     EventTime TIME NOT NULL,
     Location NVARCHAR(200) NOT NULL,
     Price DECIMAL(10,2) NOT NULL,
+    CoverImageUrl NVARCHAR(255),
     CategoryId INT NOT NULL FOREIGN KEY REFERENCES Categories(CategoryId),
     OrganizerId INT NOT NULL FOREIGN KEY REFERENCES Organizers(OrganizerId)
 );
