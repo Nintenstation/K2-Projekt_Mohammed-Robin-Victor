@@ -47,6 +47,9 @@ id används för att identifiera varje evenemang.
 -Error: visar felmeddelande i paragraf.
 
 ## Säkerhets- och integritetshänsyn
+Knappen för att hämta JSON-data från API:n kommer att kopplas av under exekveringen (alltså när själva event-listener kommer att märka av
+input). Sedan kopplas det igen efter exekvering är slut, oavsett om HTTP-responsen ger fel eller en lyckad resultat. Denna mekanism är
+inkluderad för att användaren kommer inte råka klicka igen och återställa funktionen som exekveras, eller att onöding information hämtas.
 
 ## Kända begränsningar
 Informationen som finns för evenemang är testexempel, och är fiktiva. Dessutom är det beroende på en extern API.
