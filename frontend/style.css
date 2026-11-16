@@ -69,7 +69,9 @@ button:hover {
   white-space: pre-line;
 }
 
-
+.event-card:target {
+    animation: highlighter 4s ease-out;
+}
 
 @media (min-width: 700px) {
     .event-list {
@@ -81,4 +83,10 @@ button:hover {
     .event-card {
         margin-bottom: 0;
     }
+}
+
+@keyframes highlighter {    
+    0% {background: lightgreen;}
+    50% {background: darkgreen;}
+    100% {background: lightgreen;}
 }
