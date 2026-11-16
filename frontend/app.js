@@ -4,6 +4,35 @@ const eventChoice = document.querySelector("#event-choice");
 const bookingSection = document.querySelector("#booking");
 const confirmation = document.querySelector("#confirmation");
 const form = document.querySelector("#booking-form");
+//Hämtar element för att kunna söka efter evenemang.
+const eventSearch = document.querySelector("#event-search");
+const eventCards = document.querySelectorAll(".event-card");
+const searchStatus = document.querySelector("#search-status");
+
+// Hanterar sökningen efter evenemang.
+eventSearch.addEventListener("input", function() {
+    const searchText = eventSearch.value.toLowerCase().trim();
+
+    eventCards.forEach(function(card) {
+        const eventName = card.querySelector("h3").textContent.toLowerCase();
+
+        if (eventName.includes(searchText)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    const visibleEvents = Array.from(eventCards).filter(function(card) {
+        return card.style.display !== "none";
+    });
+
+    if (visibleEvents.length === 0) {
+        searchStatus.textContent = "Inga evenemang hittades. Försök med en annan sökning.";
+    } else {
+        searchStatus.textContent = "";
+    }
+});
 
 //Hanterar bokningsknapparna.
 bookingButtons.forEach(function(button) {
