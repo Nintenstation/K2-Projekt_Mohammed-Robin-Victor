@@ -51,11 +51,16 @@ id används för att identifiera varje evenemang.
 ## Loading-, empty-, success- och error-läge
 -Loading: visar paragraf att datan försöker att hämtas och laddas.
 
--Empty: meddelar en paragraf att ingen evenemang finns i JSON-filen.
+-Empty: skriver ut i en paragraf att ingen evenemang finns.
 
 -Success: paragraf som visar antal evenemang, och vilka evenemang det är.
 
 -Error: visar felmeddelande i paragraf.
+
+## Testfall
+Loading sker inför tryck på knapp med event listener som är kopplad till async funktionen. /api/events endpoint skriver ut lista av
+evenemang. /api/test/empty endpoint gör så att paragrafen skriver ut att listan är tom. /api/events/9999 ger felmeddelande för statuskod 404
+och api/test/error ger felmeddelande för statuskod mellan 500 och 599.
 
 ## Säkerhets- och integritetshänsyn
 Knappen för att hämta JSON-data från API:n kommer att kopplas av under exekveringen (alltså när själva event-listener kommer att märka av
