@@ -90,3 +90,19 @@ button:hover {
     50% {background: darkgreen;}
     100% {background: lightgreen;}
 }
+
+/* Designar sökfältet */
+#event-search {
+    padding: 0.75rem;
+    border: 2px solid black;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+/* Meddelandet när inga evenemang hittas */
+#search-status {
+    font-weight: bold;
+    color: #b00020;
+}
