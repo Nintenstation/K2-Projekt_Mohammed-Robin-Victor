@@ -2,11 +2,20 @@
 
 ## Användarbehov
 Besökaren ska kunna se tillgängliga evenemang för att hitta något intressant att delta i.
+
 ## Bas-URL och endpoint
 Bas-URL: http://localhost:5043
 Endpoint: /api/events
+
 ## HTTP-metod
 GET – används för att hämta evenemang från API.
+
+## Förväntad HTTP-respons
+Om status koden är ok (200-299) så ska JavaScript-koden skriva ut listan av de fiktiva evenemangen från API:n, om det 
+finns några. Om det inte finns så ska ett meddelande visas som förklarar att inga evenemang finns. Om statuskoden är däremot i 400-talet
+eller 500-talet, så ska det visa ett felmeddelande om att evenemanglistan kunde inte hämtas. Om det är exempelvis 404 skriver det ut 
+"Evenemangen kunde inte hittas" och om status koden är mellan 500 och 599 så skrivs ut "Det förekom fel i servern. Försök igen senare!". 
+
 ## Exempel på svar
 Exempel från JSON-array med evenemang.
 
@@ -23,6 +32,7 @@ Exempel från JSON-array med evenemang.
 -organizer: "Kodföreningen"
 
 -venue: "Kulturhuset, Stockholm"
+
 ## Fält som används
 -title – evenemangets namn.
 
@@ -37,6 +47,7 @@ Exempel från JSON-array med evenemang.
 -venue – plats.
 
 id används för att identifiera varje evenemang.
+
 ## Loading-, empty-, success- och error-läge
 -Loading: visar paragraf att datan försöker att hämtas och laddas.
 
