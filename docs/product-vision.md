@@ -31,3 +31,7 @@ Webbapplikationen ska endast vara relaterad till lokala evenemang och deras resp
 Slutprodukten ska ha databas, back-end design och responsiv front-end design för att kunna få input från användaren när hen vill anmäla till ett lokalt evenemang, och att hitta information om evenemang. 
 Front-end design visar en GUI för filtrering och en vertikal lista som visar lokala evenemang. När man klickar på ett evenemang ska det vara sin egen sida.
 Användaren ska kunna anmäla sig till evenemang utan en profil - det är tillräckligt att anmälningsformulären ber om fullständig namn, telefon, adress, mejl, och gata.
+
+## Gemensam kravtolkning 
+
+Vi satt gemensamt och gick igenom K2-projektets kravspecifikation för att förstå vad som förväntades av oss. Utifrån kraven diskuterade vi vad som behövde utvecklas och skapade våra initiala user stories för att planera arbetet.
