@@ -11,10 +11,17 @@ Endpoint: /api/events
 GET – används för att hämta evenemang från API.
 
 ## Förväntad HTTP-respons
-Om status koden är ok (200-299) så ska JavaScript-koden skriva ut listan av de fiktiva evenemangen från API:n, om det 
-finns några. Om det inte finns så ska ett meddelande visas som förklarar att inga evenemang finns. Om statuskoden är däremot i 400-talet
-eller 500-talet, så ska det visa ett felmeddelande om att evenemanglistan kunde inte hämtas. Om det är exempelvis 404 skriver det ut 
-"Evenemangen kunde inte hittas" och om status koden är mellan 500 och 599 så skrivs ut "Det förekom fel i servern. Försök igen senare!". 
+Följande text borde async funktionen skriva ut beroende på statuskoden i HTTP-responsen:
+
+-Status kod: 200–299 (lyckat svar): JavaScript visar listan med fiktiva evenemang från API, om det finns några.
+
+-Tom lista: Om det inte finns några evenemang visas ett meddelande som förklarar att inga evenemang finns.
+
+-Status kod: 400–499: "Evenemang kunde inte hämtas! Försök igen.".
+
+-Status kod: 404: Visar meddelandet "Evenemangen kunde inte hittas".
+
+-Status kod: 500–599: Visar meddelandet "Det förekom fel i servern. Försök igen senare!". 
 
 ## Exempel på svar
 Exempel från JSON-array med evenemang.
