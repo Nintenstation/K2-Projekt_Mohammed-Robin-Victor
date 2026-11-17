@@ -12,13 +12,13 @@ BEGIN
 END;
 GO
 
+/* 
+ Syfte:
+ Triggern används för att hålla reda på när ett evenemang senast uppdaterades.
 
--- Syfte:
--- Triggern används för att hålla reda på när ett evenemang senast uppdaterades.
+ Aktivering:
+ Triggern aktiveras automatiskt efter en UPDATE på tabellen Events.
 
--- Aktivering:
--- Triggern aktiveras automatiskt efter en UPDATE på tabellen Events.
-
--- Förväntat resultat:
--- Kolumnen LastUpdated uppdateras med aktuell datum- och tidpunkt
--- för det eller de evenemang som har ändrats.
+ Förväntat resultat:
+ Kolumnen LastUpdated uppdateras med aktuell datum- och tidpunkt
+ för det eller de evenemang som har ändrats. */
