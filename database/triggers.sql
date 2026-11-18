@@ -19,6 +19,10 @@ GO
  Aktivering:
  Triggern aktiveras automatiskt efter en UPDATE på tabellen Events.
 
+ Test: 
+ Triggern har skapats i transact-SQL och två testfall har gjorts på två olika kolumner i två olika rader, 
+ och den fungerar. Triggern är för en extra kolumn i Evenemangtabellen som ska visa när en rad i evenemangen har uppdaterats i någon av dess data celler.
+
  Förväntat resultat:
  Kolumnen LastUpdated uppdateras med aktuell datum- och tidpunkt
  för det eller de evenemang som har ändrats. */
