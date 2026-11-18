@@ -1,13 +1,19 @@
 //Hämtar olika element från HTML så att JavaScript kan arbeta med dem.
 const bookingButtons = document.querySelectorAll(".book-button");
 const eventChoice = document.querySelector("#event-choice");
-const bookingSection = document.querySelector("#booking");
-const confirmation = document.querySelector("#confirmation");
+const choiceConfirmation = document.querySelector("#choice-confirmation");
+const nameConfirmation = document.querySelector("#name-confirmation");
+const emailConfirmation = document.querySelector("#email-confirmation");
+const phoneConfirmation = document.querySelector("#phone-confirmation");
+const spotsConfirmation = document.querySelector("#spots-confirmation");
+const finalConfirmation = document.querySelector("#final-confirmation");
 const form = document.querySelector("#booking-form");
 //Hämtar element för att kunna söka efter evenemang.
 const eventSearch = document.querySelector("#event-search");
 const eventCards = document.querySelectorAll(".event-card");
 const searchStatus = document.querySelector("#search-status");
+//Hämtar element för att kunna öppna bokningsmodalen via navigeringslänken.
+const navBookLink = document.querySelector("#nav-book-link");
 
 // Hanterar sökningen efter evenemang.
 eventSearch.addEventListener("input", function() {
@@ -34,16 +40,43 @@ eventSearch.addEventListener("input", function() {
     }
 });
 
-//Hanterar bokningsknapparna.
+//Hanterar bokningsknapparna för att öppna bokningsmodalen.
 bookingButtons.forEach(function(button) {
     button.addEventListener("click", function() {
-        eventChoice.value = button.dataset.event;
-
-        bookingSection.scrollIntoView({
-            behavior: "smooth"
-        });
+        const eventTitle = button.dataset.event;
+        
+        if (typeof openBookingModal === 'function') {
+            openBookingModal(eventTitle);
+        }
     });
 });
+
+//Hanterar länken i navigationsmenyn
+navBookLink.addEventListener("click", function(event) {
+    event.preventDefault(); 
+    
+    if (typeof openBookingModal === 'function') {
+        openBookingModal(); 
+    }
+});
+
+//Hanterar "Läs mer"-knapparna för att öppna modalen med evenemangsdetaljer.
+const readMoreButtons = document.querySelectorAll('.read-more-btn');
+readMoreButtons.forEach(function(button) {
+    button.addEventListener("click", function() {
+        const eventTitle = button.dataset.event;
+        
+        if (typeof openDetailModal === 'function') {
+            openDetailModal(eventTitle);
+        }
+    });
+});
+
+// Validerar e-postadress
+function valid(email) {
+    const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(email);
+}
 
 //Hanterar formuläret.
 form.addEventListener("submit", function(event) {
@@ -53,29 +86,55 @@ form.addEventListener("submit", function(event) {
     const name = document.querySelector("#name").value.trim();
     const email = document.querySelector("#email").value.trim();
     const phone = document.querySelector("#telefon").value.trim();
+    const spots = document.querySelector("#antal-platser").value.trim();
     const selectedEvent = eventChoice.value;
+    const hasSpots = hasAvailableSpots(selectedEvent, spots);
+
+    choiceConfirmation.textContent = "";
+    nameConfirmation.textContent = "";
+    emailConfirmation.textContent = "";
+    phoneConfirmation.textContent = "";
+    spotsConfirmation.textContent = "";
+    finalConfirmation.textContent = "";
 
 //Kontrollerar att fälten är ifyllda. Dessutom kontrollerar om telefonnummer innehåller icke-numeriska värde och validerar dess längd.
-    if (name === "" || email === "" || phone === "" || selectedEvent === "") {
-        confirmation.textContent = "Fyll i alla fält!";
-        confirmation.style.color = "red";
+    if (selectedEvent === "") {
+        choiceConfirmation.textContent = "Välj en giltigt evenemang!";
+        choiceConfirmation.style.color = "red";
         return;
-    } else if (isNaN(phone)) {
-        confirmation.textContent = "Telefon ska innehålla endast siffror!";
-        confirmation.style.color = "red";
+    } else if (name === "") {
+        nameConfirmation.textContent = "Skriv in ditt namn!";
+        nameConfirmation.style.color = "red";
+        return;
+    } else if (!valid(email) || email === "") {
+        emailConfirmation.textContent = "Ange en giltig e-postadress!";
+        emailConfirmation.style.color = "red";
+        return;
+    } else if (isNaN(phone) || phone === "") {
+        phoneConfirmation.textContent = "Telefon ska innehålla endast siffror!";
+        phoneConfirmation.style.color = "red";
         return;
     } else if (phone.length < 8 || phone.length > 14) {
-        confirmation.textContent = `Telefonnumret ska vara mellan 8 och 14 siffror långt! Ditt telefonnummer längd: ${phone.length}`;
-        confirmation.style.color = "red";
+        phoneConfirmation.textContent = `Telefonnumret ska vara mellan 8 och 14 siffror långt! Ditt telefonnummer längd: ${phone.length}`;
+        phoneConfirmation.style.color = "red";
         return;
-    } 
+    } else if (spots < 1 || spots > 5) {
+        spotsConfirmation.textContent = "Du kan bara boka mellan 1 och 5 platser.";
+        spotsConfirmation.style.color = "red";
+        return;
+    } else if (!hasSpots) {
+        spotsConfirmation.textContent = "Tyvärr, det finns inga tillräckliga platser kvar för din bokning av detta evenemang.";
+        spotsConfirmation.style.color = "red";
+        return;
+    }
         
-
 //Visar bokningsbekräftelse
-    confirmation.textContent = "DU ÄR ANMÄLD TILL " + selectedEvent + "!";
-    confirmation.style.color = "green";
-    confirmation.style.fontSize = "24px";
+    finalConfirmation.textContent = "DU ÄR ANMÄLD TILL " + selectedEvent + "!";
+    finalConfirmation.style.color = "green";
+    finalConfirmation.style.fontSize = "24px";
+    deductSpot(selectedEvent, spots);
 
+    form.reset();
     console.log("Bokningsformuläret har skickats.");
 });
 
