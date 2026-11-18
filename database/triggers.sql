@@ -21,7 +21,9 @@ GO
 
  Test: 
  Triggern har skapats i transact-SQL och två testfall har gjorts på två olika kolumner i två olika rader, 
- och den fungerar. Triggern är för en extra kolumn i Evenemangtabellen som ska visa när en rad i evenemangen har uppdaterats i någon av dess data celler.
+ och den fungerar. Vi provade att ändra priset för "En lokal fotbollsturnering" och tiden för "En sen natt där besäkaren kollar på en film" 
+ och triggern syntes då i "LastUpdated" med exakt klockslag och datum på när ändringen gjordes.
+ Triggern är för en extra kolumn i Events-tabellen som ska visa när en rad i Events har uppdaterats i någon av dess data celler.
 
  Förväntat resultat:
  Kolumnen LastUpdated uppdateras med aktuell datum- och tidpunkt
