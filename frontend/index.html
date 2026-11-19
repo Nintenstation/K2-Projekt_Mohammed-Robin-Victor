@@ -6,80 +6,140 @@
     <title>Eventflow</title>
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
+    <script src="modal.js" defer></script>
 </head>
 
 <body>
-
     <header>
-        <section id="logo">
+    <section id="logo">
+        <a href="index.html" style="text-decoration: none; color: inherit;">
             <h1>Eventflow</h1>
             <p>Hitta ditt nästa evenemang!</p>
-        </section>
-        <nav>
-            <a href="#events">Evenemang</a>
-            <a href="#booking">Boka här</a>
-        </nav>
-    </header>
+        </a>
+    </section>
+    <nav>
+        <a href="#events">Evenemang</a>
+        <a href="#" id="nav-book-link">Boka här</a>
+    </nav>
+</header>
 
     <main>
 
         <section id="events">
-            <h2>Kommande evenemang</h2>
-            <label for="event-search">Sök evenemang:</label>
-            <input type="text" id="event-search" placeholder="Sök efter evenemang...">
+            <section class="search-filter-container">
+                <h2>Kommande evenemang</h2>
+                <div class="controls-row">
+                    
+                    <div class="search-container">
+                        <label for="event-search">Sök evenemang:</label>
+                        <input type="text" id="event-search" placeholder="Sök efter evenemang...">
+                        <p id="search-status" aria-live="polite"></p>
+                    </div>
 
-            <p id="search-status" aria-live="polite"></p>
+                    <div class="filter-container">
+                        <section id="categories">
+                            <p class="filter-description">Välj en kategori för att visa specifika evenemang.</p>
+                            
+                            <div class="filter-controls">
+                                <select id="category-filter">
+                                    <option value="">Välj kategori</option>
+                                    <option value="music">Musik</option>
+                                    <option value="sport">Sport</option>
+                                    <option value="culture">Kultur</option>
+                                    <option value="family">Familj</option>
+                                    <option value="adventure">Äventyr</option>
+                                </select>
 
-        <div class="event-list">
+                                <button id="category-filter-button" type="button">Filtrera</button>
+                            </div>
 
-            <div id="live-concert" class="event-card">
-                <h3>Livekonsert</h3>
-                <p>Upplev livemusik och en härlig kväll.</p>
+                            <p id="category-filter-status"></p>
+                            <ul id="category-filter-list"></ul>
+                        </section>
+                    </div>
+                </div> 
+            </section>
 
-                <button type="button" class="book-button"
-                    data-event="Livekonsert">
-                    Boka här & läs mer
-                </button>
-            </div>
+            <div class="event-list">
+                <div id="live-concert" class="event-card">
+                    <img src="images/concert.jpg" alt="Livekonsert" class="card-image">
+                    <h3>Livekonsert</h3>
+                    <p>Upplev livemusik och en härlig kväll.</p>
 
-            <div id="football-tournament" class="event-card">
-                <h3>Fotbollsturnering</h3>
-                <p>Kom och upplev spänningen på planen.</p>
+                    <div class="button-group">
+                        <button type="button" class="read-more-btn" data-event="Livekonsert">
+                            Läs mer
+                        </button>
+                        
+                        <button type="button" class="book-button" data-event="Livekonsert">
+                            Boka plats
+                        </button>
+                    </div>
+                </div>
 
-                <button type="button" class="book-button"
-                    data-event="Fotbollsturnering">
-                    Boka här & läs mer
-                </button>
-            </div>
+                <div id="football-tournament" class="event-card">
+                    <img src="images/football.jpg" alt="Fotbollsturnering" class="card-image">
+                    <h3>Fotbollsturnering</h3>
+                    <p>Kom och upplev spänningen på planen.</p>
 
-            <div id="art-exhibition" class="event-card">
-                <h3>Konstutställning</h3>
-                <p>Upptäck konst och kreativa upplevelser.</p>
+                    <div class="button-group">
+                        <button type="button" class="read-more-btn" data-event="Fotbollsturnering">
+                            Läs mer
+                        </button>
+                        
+                        <button type="button" class="book-button" data-event="Fotbollsturnering">
+                            Boka plats
+                        </button>
+                    </div>
+                </div>
 
-                <button type="button" class="book-button"
-                    data-event="Konstutställning">
-                    Boka här & läs mer
-                </button>
-            </div>
+                <div id="art-exhibition" class="event-card">
+                    <img src="images/art.jpg" alt="Konstutställning" class="card-image">
+                    <h3>Konstutställning</h3>
+                    <p>Upptäck konst och kreativa upplevelser.</p>
 
-            <div id="family-day" class="event-card">
-                <h3>Familjedag</h3>
-                <p>En rolig dag för hela familjen.</p>
+                    <div class="button-group">
+                        <button type="button" class="read-more-btn" data-event="Konstutställning">
+                            Läs mer
+                        </button>
+                        
+                        <button type="button" class="book-button" data-event="Konstutställning">
+                            Boka plats
+                        </button>
+                    </div>
+                </div>
 
-                <button type="button" class="book-button"
-                    data-event="Familjedag">
-                    Boka här & läs mer
-                </button>
-            </div>
+                <div id="family-day" class="event-card">
+                    <img src="images/family.jpg" alt="Familjedag" class="card-image">
+                    <h3>Familjedag</h3>
+                    <p>En rolig dag för hela familjen.</p>
 
-            <div id="movie-night" class="event-card">
-                <h3>Movie Night</h3>
-                <p>Samlas för en mysig filmkväll.</p>
+                    <div class="button-group">
+                        <button type="button" class="read-more-btn" data-event="Familjedag">
+                            Läs mer
+                        </button>
+                        
+                        <button type="button" class="book-button" data-event="Familjedag">
+                            Boka plats
+                        </button>
+                    </div>
+                </div>
 
-                <button type="button" class="book-button"
-                    data-event="Movie Night">
-                    Boka här & läs mer
-                </button>
+                <div id="movie-night" class="event-card">
+                    <img src="images/movie.jpg" alt="Movie Night" class="card-image">
+                    <h3>Movie Night</h3>
+                    <p>Samlas för en mysig filmkväll.</p>
+
+                    <div class="button-group">
+                        <button type="button" class="read-more-btn" data-event="Movie Night">
+                            Läs mer
+                        </button>
+
+                        <button type="button" class="book-button" data-event="Movie Night">
+                            Boka plats
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -91,71 +151,90 @@
             <ul id="api-event-list"></ul>
         </section>
 
-        <section id="categories">
-            <h2>Filtrera evenemang baserad på kategori</h2>
-            <p>Du kan välja en viss kategori du är intresserad av! Sedan tryck på knappen för att visa evenemang för din kategori.</p>
-            <label for="category-filter">Kategori: </label>
-            <select id="category-filter">
-                <option value="">Välj kategori</option>
-                <option value="music">Musik</option>
-                <option value="sport">Sport</option>
-                <option value="culture">Kultur</option>
-                <option value="family">Familj</option>
-                <option value="adventure">Äventyr</option>
-            </select>
-            <br>
-            <button id="category-filter-button" type="button">Filtrera</button>
-            <p id="category-filter-status"></p>
-            <ul id="category-filter-list"></ul>
-        </section>
-
-        <section id="booking">
-            <h2>Boka/anmäl dig till evenemang här</h2>
-
-            <form id="booking-form" novalidate>
-
-                <div>
-                    <label for="event-choice">
-                        Välj evenemang:
-                    </label>
-
-                    <select id="event-choice" name="event" required>
-                        <option value="">Välj ett evenemang</option>
-                        <option value="Livekonsert">Livekonsert</option>
-                        <option value="Fotbollsturnering">Fotbollsturnering</option>
-                        <option value="Konstutställning">Konstutställning</option>
-                        <option value="Familjedag">Familjedag</option>
-                        <option value="Movie Night">Movie Night</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label for="name">Namn:</label>
-                    <input type="text" id="name" name="Namn">
-                </div>
-
-                <div>
-                    <label for="email">E-mail:</label>
-                    <input type="email" id="email" name="Email">
-                </div>
-
-                <div>
-                    <label for="telefon">Telefonnummer:</label>
-                    <input type="tel" id="telefon" name="Telefon">
-                </div>
-
-                <button type="submit">Skicka in</button>
-
-                <p id="confirmation" aria-live="polite"></p>
-
-            </form>
-        </section>
-
     </main>
 
     <footer>
         <p>&copy; 2026 Eventflow</p>
     </footer>
 
+    <div id="detail-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Evenemangstitel</h2>
+                <span class="close close-detail">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="Evenemangsbild" class="modal-image">
+                
+                <div class="modal-data">
+                    <p><strong>Datum:</strong> <span id="modal-date"></span></p>
+                    <p><strong>Tid:</strong> <span id="modal-time"></span></p>
+                    <p><strong>Plats:</strong> <span id="modal-location"></span></p>
+                    <p><strong>Pris:</strong> <span id="modal-price"></span></p>
+                    <p><strong>Lediga platser:</strong> <span id="modal-spots"></span></p>
+                </div>
+
+                <p id="modal-description">Beskrivningen laddas in här...</p>
+                <button id="modal-book-btn" class="book-button" style="width: 100%;">Boka plats</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="booking-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            
+            <div class="modal-header">
+                <h2>Boka/anmäl dig här</h2>
+                <span class="close close-booking">&times;</span>
+            </div>
+
+            <div class="modal-body">
+                <form id="booking-form" novalidate>
+                    <div>
+                        <label for="event-choice">Välj evenemang:</label>
+                        <select id="event-choice" name="event" required>
+                            <option value="">Välj ett evenemang</option>
+                            <option value="Livekonsert">Livekonsert</option>
+                            <option value="Fotbollsturnering">Fotbollsturnering</option>
+                            <option value="Konstutställning">Konstutställning</option>
+                            <option value="Familjedag">Familjedag</option>
+                            <option value="Movie Night">Movie Night</option>
+                        </select>
+                    </div>
+                    <p id="choice-confirmation" aria-live="polite"></p>
+                    
+                    <div>
+                        <label for="name">Namn:</label>
+                        <input type="text" id="name" name="Namn">
+                    </div>
+                    <p id="name-confirmation" aria-live="polite"></p>
+                    
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input type="email" id="email" name="Email">
+                    </div>
+                    <p id="email-confirmation" aria-live="polite"></p>
+                    
+                    <div>
+                        <label for="telefon">Telefonnummer:</label>
+                        <input type="tel" id="telefon" name="Telefon">
+                    </div>
+                    <p id="phone-confirmation" aria-live="polite"></p>
+                    
+                    <div>
+                        <label for="antal-platser">Antal platser:</label>
+                        <input type="number" id="antal-platser" name="Antal platser" min="1" max="5">
+                    </div>
+                    <p id="spots-confirmation" aria-live="polite"></p>
+
+                    <button type="submit" style="width: 100%; margin-top: 1rem;">Skicka in</button>
+                    <p id="final-confirmation" aria-live="polite"></p>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    
 </body>
 </html>
