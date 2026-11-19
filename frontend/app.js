@@ -105,7 +105,7 @@ const Venue = document.createElement("p");
 Venue.textContent = "Plats: ";
 
 
-//API-integrerad kod som ska hämta JSON-data och presentera det i HTML-format, vilket är för fiktiv evenemang lista
+//API-integrerad kod som ska hämta JSON-data och presentera det i HTML-format, vilket är för en fiktiv evenemang lista
 async function loadEventList(){
     apiStatus.textContent = "Hämtar en lista av evenemang...";
     apiEventsList.replaceChildren(); 
