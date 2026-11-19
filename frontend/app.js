@@ -138,6 +138,11 @@ form.addEventListener("submit", function(event) {
     console.log("Bokningsformuläret har skickats.");
 });
 
+// Rensar bokningsbekräftelsen så fort användaren börjar skriva i formuläret igen
+form.addEventListener("input", function() {
+    finalConfirmation.textContent = "";
+});
+
 //Hämta värden för att kunna hantera en asynkron kod som ska använda sig av API för utbyte av data, och sedan presentera i HTML format
 const apiURL = "http://localhost:5043/api/events";
 const apiLoadButton = document.querySelector("#api-load-button");

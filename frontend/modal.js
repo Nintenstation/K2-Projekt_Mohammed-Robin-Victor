@@ -107,6 +107,8 @@ function closeModal() {
 
 // Öppnar bokningsmodalen och förifyller eventvalet om ett evenemang är valt
 function openBookingModal(eventTitle) {
+    document.getElementById("final-confirmation").textContent = "";
+    
     if (eventTitle) {
         eventChoiceDropdown.value = eventTitle;
     }
@@ -133,6 +135,11 @@ function hasAvailableSpots(eventTitle, requestedSpots) {
     const eventInfo = eventsData.find(function(ev) {
         return ev.title === eventTitle;
     });
+
+    if (!eventInfo) {
+        return false;
+    }
+
     const spotsWanted = Number(requestedSpots);
     if (eventInfo && eventInfo.spots >= spotsWanted) {
         console.log("Enough spots for event:", eventTitle, "Requested:", spotsWanted, "Available:", eventInfo.spots);
