@@ -143,13 +143,13 @@ form.addEventListener("input", function() {
     finalConfirmation.textContent = "";
 });
 
-//Hämta värden för att kunna hantera en asynkron kod som ska använda sig av API för utbyte av data, och sedan presentera i HTML format
+// Hämta värden för att kunna hantera en asynkron kod som ska använda sig av API för utbyte av data, och sedan presentera i HTML format
 const apiURL = "http://localhost:5043/api/events";
 const apiLoadButton = document.querySelector("#api-load-button");
 const apiStatus = document.querySelector("#api-status");
 const apiEventsList = document.querySelector("#api-event-list");
 
-//Värden för att kunna presentera information på tydligare sätt när fiktiva evenemang hämtas
+// Värden för att kunna presentera information på tydligare sätt när fiktiva evenemang hämtas
 const Title = document.createElement("p");
 Title.textContent = "Evenemangstitel: ";
 
@@ -169,21 +169,26 @@ const Venue = document.createElement("p");
 Venue.textContent = "Plats: ";
 
 
-//API-integrerad kod som ska hämta JSON-data och presentera det i HTML-format, vilket är för fiktiv evenemang lista
+// API-integrerad kod som ska hämta JSON-data och presentera det i HTML-format, vilket är för fiktiv evenemang lista
 async function loadEventList(){
-    apiStatus.textContent = "Hämtar en lista av evenemang...";
+    apiStatus.textContent = "Hämtar en lista av fiktiva evenemang...";
     apiEventsList.replaceChildren(); 
     apiLoadButton.disabled = true;
 
-    let errorMessage = "Evenemang kunde inte hämtas! Försök igen.";
+    let errorMessage = "Fiktiva evenemang kunde inte hämtas! Försök igen.";
+    let errorMessageNetwork = "Kunde inte ansluta till API:t. Kontrollera att servern är igång och försök igen.";
+    let isHttpError = false;
 
+    // Använder try-catch för att hantera eventuella fel som kan uppstå vid hämtning av data från API:t
     try {
 
         const response = await fetch(apiURL);
 
+        // Kontrollerar om HTTP-svaret misslyckades
         if(!response.ok){
+            isHttpError = true;
             if(response.status === 404){
-                errorMessage = "Evenemangen kunde inte hittas.";
+                errorMessage = "Fiktiva evenemang kunde inte hittas.";
             } else if(response.status >= 500 && response.status <= 599){
                 errorMessage = "Det förekom fel i servern. Försök igen senare!";
             }
@@ -194,10 +199,11 @@ async function loadEventList(){
         const events = await response.json();
 
         if(events.length === 0){
-            apiStatus.textContent = "Åh nej, det fanns inga evenemang att visa just nu!";
+            apiStatus.textContent = "Åh nej, det fanns inga fiktiva evenemang att visa just nu!";
             return;
         }
 
+        // Loopar igenom evenemangen och skapar HTML-element för att visa dem
         for(const event of events){
             const eventEntity = document.createElement("li");
             
@@ -224,11 +230,17 @@ async function loadEventList(){
             apiEventsList.append(eventEntity);
         }
 
-        apiStatus.textContent = `${events.length} evenemang finns!`;
+        apiStatus.textContent = `${events.length} fiktiva evenemang finns!`;
 
     } catch(error) {
-        console.error("Kunde inte hämta evenemang.");
-        apiStatus.textContent = errorMessage;
+        console.error("Kunde inte hämta fiktiva evenemang.");
+
+        // Skiljer på nätverksfel när API är nere och HTTP-fel när API är uppe men inte kan leverera data
+        if(!isHttpError && error instanceof TypeError){
+            apiStatus.textContent = errorMessageNetwork;
+        } else {
+            apiStatus.textContent = errorMessage;
+        }
     } finally {
         apiLoadButton.disabled = false;
     }
