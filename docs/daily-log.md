@@ -1,3 +1,26 @@
+## Daily Scrum – datum 26-11-18
+
+### Framsteg mot sprintmålet
+
+Vi har redan förbättrat API-felhantering och implementerat säkerhet (exempelvis att knappen kopplas av efter klick och under hämtandet av fiktiva evenemang lista).
+
+### Arbete till nästa avstämning
+
+Dokumentera formella kodgranskningar och att använda AI som kandidatfynd med mänsklig verifiering.
+
+### Hinder eller risker
+
+Tidspress.
+
+### Hjälp eller beslut som behövs
+
+Bestämma vilken medlem i teamet som ska göra vissa moment i arbetet. 
+
+### Förändring i planen eller tavlan
+
+Ny user story på Github Projects som är avsedd till en sprint review.
+
+---
 ## Daily Scrum – datum 26-11-11
 
 ### Framsteg mot sprintmålet

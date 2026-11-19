@@ -2,11 +2,27 @@
 
 ## Användarbehov
 Besökaren ska kunna se tillgängliga evenemang för att hitta något intressant att delta i.
+
 ## Bas-URL och endpoint
 Bas-URL: http://localhost:5043
 Endpoint: /api/events
+
 ## HTTP-metod
 GET – används för att hämta evenemang från API.
+
+## Förväntad HTTP-respons
+Följande text borde async funktionen skriva ut beroende på statuskoden i HTTP-responsen:
+
+-Status kod: 200–299 (lyckat svar): JavaScript visar listan med fiktiva evenemang från API, om det finns några.
+
+-Tom lista: Om det inte finns några evenemang visas ett meddelande som förklarar att inga evenemang finns.
+
+-Status kod: 400–499: "Evenemang kunde inte hämtas! Försök igen.".
+
+-Status kod: 404: Visar meddelandet "Evenemangen kunde inte hittas".
+
+-Status kod: 500–599: Visar meddelandet "Det förekom fel i servern. Försök igen senare!". 
+
 ## Exempel på svar
 Exempel från JSON-array med evenemang.
 
@@ -23,6 +39,7 @@ Exempel från JSON-array med evenemang.
 -organizer: "Kodföreningen"
 
 -venue: "Kulturhuset, Stockholm"
+
 ## Fält som används
 -title – evenemangets namn.
 
@@ -37,14 +54,20 @@ Exempel från JSON-array med evenemang.
 -venue – plats.
 
 id används för att identifiera varje evenemang.
+
 ## Loading-, empty-, success- och error-läge
 -Loading: visar paragraf att datan försöker att hämtas och laddas.
 
--Empty: meddelar en paragraf att ingen evenemang finns i JSON-filen.
+-Empty: skriver ut i en paragraf att ingen evenemang finns.
 
 -Success: paragraf som visar antal evenemang, och vilka evenemang det är.
 
 -Error: visar felmeddelande i paragraf.
+
+## Testfall
+Loading sker inför tryck på knapp med event listener som är kopplad till async funktionen. /api/events endpoint skriver ut lista av
+evenemang. /api/test/empty endpoint gör så att paragrafen skriver ut att listan är tom. /api/events/9999 ger felmeddelande för statuskod 404
+och api/test/error ger felmeddelande för statuskod mellan 500 och 599.
 
 ## Säkerhets- och integritetshänsyn
 Knappen för att hämta JSON-data från API:n kommer att kopplas av under exekveringen (alltså när själva event-listener kommer att märka av

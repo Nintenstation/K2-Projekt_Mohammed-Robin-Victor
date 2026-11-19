@@ -41,6 +41,7 @@ CREATE TABLE Events
     EventTime TIME NOT NULL,
     Location NVARCHAR(200) NOT NULL,
     Price DECIMAL(10,2) NOT NULL,
+    LastUpdated DATETIME2 NULL,
     CoverImageUrl NVARCHAR(255),
     CategoryId INT NOT NULL FOREIGN KEY REFERENCES Categories(CategoryId),
     OrganizerId INT NOT NULL FOREIGN KEY REFERENCES Organizers(OrganizerId)
@@ -58,9 +59,3 @@ CREATE TABLE Registrations
     FOREIGN KEY (AttendeeId) REFERENCES Attendees(AttendeeId),
     FOREIGN KEY (EventId) REFERENCES Events(EventId)
 );
-
-/*
-ALTER TABLE Events 
-ADD LastUpdated DATETIME2;
-GO
-*/
