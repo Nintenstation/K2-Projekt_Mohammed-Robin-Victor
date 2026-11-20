@@ -212,6 +212,8 @@ button:hover {
 }
 
 .close {
+    margin-top: 0;
+    background: none;
     color: #4a4848;
     font-size: 28px;
     font-weight: bold;
@@ -219,6 +221,7 @@ button:hover {
     cursor: pointer;
 }
 .close:hover { 
+    background: none;
     color: #9d2d2d; 
 }
 
