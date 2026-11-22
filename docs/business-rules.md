@@ -1,18 +1,18 @@
 # Relationer 
 
-Anmälning: En eller flera anmälningar måste vara kopplad till en besökare, och en eller flera anmälningar måste vara kopplad till en evenemang. 
-Använd detta som kopplingsentitet mellan Besökare och evenemang, eftersom besökare och evenemang har M:N relationer. 
-(Besökare 1:N Anmälning, Anmälning N:1 Evenemang). MANDATORY relation med Besökare och Evenemang.
+Registrations: En eller flera anmälningar måste vara kopplad till en besökare, och en eller flera anmälningar måste vara kopplad till en evenemang. 
+Använd detta som kopplingsentitet mellan Attendees och Events, eftersom besökare och evenemang har M:N relationer. 
+(Besökare 1:N Registrations, Registrations N:1 Evenemang). MANDATORY relation med Attendees och Evenemang.
 
-Evenemang & Besökare: En besökare kan anmäla sig till många evenemang och ett evenemang kan ha många besökare. Därför har Besökare och Evenemang 
-en M:N-relation som löses genom Anmälning. (Besökare M:N Evenemang <-- Problem!). 
-Evenemang: OPTIONAL relation med Anmälning & kategori, MANDATORY relation med arrangör.
+Events & Attendees: En besökare kan anmäla sig till många evenemang och ett evenemang kan ha många besökare. Därför har Attendees och Events 
+en M:N-relation som löses genom Registrations. (Attendees M:N Events <-- Problem!). 
+Events: OPTIONAL relation med Registrations & Categories, MANDATORY relation med Organizer.
 
-Kategori: En kategori kan ha noll eller många evenemang, men varje evenemang måste tillhöra exakt en kategori. 
-(Kategori 1:N Evenemang). OPTIONAL relation med evenemang.
+Categories: En kategori kan ha noll eller många evenemang, men varje evenemang måste tillhöra exakt en kategori. 
+(Categories 1:N Events). OPTIONAL relation med Events.
 
-Arrangör: En arrangör kan ansvara för noll eller många evenemang, men varje evenemang måste ha exakt en arrangör. 
-(Arrangör 1:N Evenemang). OPTIONAL relation med evenemang.
+Organizer: En arrangör kan ansvara för noll eller många evenemang, men varje evenemang måste ha exakt en arrangör. 
+(Organizer 1:N Events). OPTIONAL relation med Events.
 
 # Verksamhetsregler & exempel på relationer
 
@@ -32,7 +32,7 @@ Arrangör: En arrangör kan ansvara för noll eller många evenemang, men varje 
 
 **En 1:N-relation**: En kategori kan användas för flera evenemang, men flera kategorier kan inte användas för en eller flera evenemang.
 
-**En N:M-relation som löses med en kopplingsentitet**: Besökare och evenemang har N:M relation, då löses den med Anmälning som kopplingsentitet, vilket kombinerar 
-främmande nyckel från både Besökare och Evenemang för att skapa unika fall på ett förenklat sätt.
+**En N:M-relation som löses med en kopplingsentitet**: Attendees och Events har N:M relation, då löses den med Registrations som kopplingsentitet, vilket kombinerar 
+främmande nyckel från både Attendees och Events för att skapa unika fall på ett förenklat sätt.
 
 
