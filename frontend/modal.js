@@ -2,7 +2,7 @@ const eventsData = [
     {
         title: 'Livekonsert',
         description: 'En kväll med livemusik.',
-        date: '2026-11-15',
+        date: '2026-12-01',
         time: '18:30',
         location: 'Malmö Kulturhus',
         price: '150.00 kr',
@@ -12,7 +12,7 @@ const eventsData = [
     {
         title: 'Fotbollsturnering',
         description: 'En lokal fotbollsturnering.',
-        date: '2026-11-20',
+        date: '2026-12-03',
         time: '10:00',
         location: 'Malmö Idrottsplats',
         price: '50.00 kr',
