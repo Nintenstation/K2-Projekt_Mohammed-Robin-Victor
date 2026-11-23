@@ -43,6 +43,7 @@ CREATE TABLE Events
     Price DECIMAL(10,2) NOT NULL,
     LastUpdated DATETIME2 NULL,
     CoverImageUrl NVARCHAR(255),
+    Capacity INT NOT NULL CHECK (Capacity > 0),
     CategoryId INT NOT NULL FOREIGN KEY REFERENCES Categories(CategoryId),
     OrganizerId INT NOT NULL FOREIGN KEY REFERENCES Organizers(OrganizerId)
 );

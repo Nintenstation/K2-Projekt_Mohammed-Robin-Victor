@@ -27,13 +27,13 @@ VALUES
     (N'Johan Karlsson', N'johan@example.com', N'0704444444');
 
 -- Evenemang
-INSERT INTO Events (Title, Description, EventDate, EventTime, Location, Price, CoverImageUrl, CategoryId, OrganizerId)
+INSERT INTO Events (Title, Description, EventDate, EventTime, Location, Price, CoverImageUrl, Capacity, CategoryId, OrganizerId)
 VALUES  
-    (N'Livekonsert', N'En kväll med livemusik.', '2026-11-15', '18:30', N'Malmö Kulturhus', 150.00, N'/images/livekonsert.jpg', 1, 1),
-    (N'Fotbollsturnering', N'En lokal fotbollsturnering.', '2026-11-20', '10:00', N'Malmö Idrottsplats', 50.00, NULL, 2, 2),
-    (N'Konstutställning', N'En utställning med lokal konst.', '2026-12-05', '13:00', N'Galleri Malmö', 0.00, NULL, 3, 1),
-    (N'Familjedag', N'Aktiviteter för hela familjen.', '2026-12-12', '11:00', N'Folkets Park', 0.00, NULL, 4, 3),
-    (N'Movie Night', N'En sen natt där besökare kollar på en film', '2026-12-28', '23:59:59.99', N'Malmö Filmfestival', 259.00, NULL, 3, 1);
+    (N'Livekonsert', N'En kväll med livemusik.', '2026-11-15', '18:30', N'Malmö Kulturhus', 150.00, N'/images/livekonsert.jpg', 120, 1, 1),
+    (N'Fotbollsturnering', N'En lokal fotbollsturnering.', '2026-11-20', '10:00', N'Malmö Idrottsplats', 50.00, NULL, 1, 2, 2),
+    (N'Konstutställning', N'En utställning med lokal konst.', '2026-12-05', '13:00', N'Galleri Malmö', 0.00, NULL, 200, 3, 1),
+    (N'Familjedag', N'Aktiviteter för hela familjen.', '2026-12-12', '11:00', N'Folkets Park', 0.00, NULL, 500, 4, 3),
+    (N'Movie Night', N'En sen natt där besökare kollar på en film', '2026-12-28', '23:59:59.99', N'Malmö Filmfestival', 259.00, NULL, 80, 3, 1);
 
 -- Anmälning
 INSERT INTO Registrations (AttendeeId, EventId, RegistrationDate, Quantity)
