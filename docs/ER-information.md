@@ -4,55 +4,56 @@ Relational database (SQL database)
 
 ## Entiteter & attribut
 
-Anmälning:
-	PkAnmälningId
-	FkEvenemangId
-	FkBesökareId
-	- Anmälningsdatum
-	- AntalPlatser
+Registrations:
+	PkRegistrationId
+	FkEventId
+	FkAttendeeId
+	- RegistrationDate
+	- Quantity
 
-Evenemang:
-	PkEvenemangId
-	FkArrangörId
-	FkKategoriId
-	- Titel
-	- Beskrivning
-	- Datum
-	- Tid
-	- Plats
-	- Pris
+Events:
+	PkEventId
+	FkOrganizerId
+	FkCategoryId
+	- Title
+	- Description
+	- EventDate
+	- EventTime
+	- Location
+	- Price
+	- CoverImageUrl
 
-Kategori:
-	PkKategoriId
-	- Namn
+Categories:
+	PkCategoryId
+	- Name
 
-Arrangör:
-	PkArrangörId
-	- Namn
-	- Telefonnummer
-	- Mejl
+Organizer:
+	PkOrganizerId
+	- Name
+	- Phone
+	- Email
 
-Besökare:
-	PkBesökareId
-	- Namn
-	- Telefon
-	- Mejl
+Attendees:
+	PkAttendeeId
+	- Name
+	- Phone
+	- Email
 
 ## Viktiga relationer & antaganden
 
-**Anmälning**: En eller flera anmälningar måste vara kopplad till en besökare, och en eller flera anmälningar måste vara kopplad till en 
-evenemang. Använd detta som kopplingsentitet mellan Besökare och evenemang, eftersom besökare och evenemang har M:N relationer. 
-(Besökare **1:N** Anmälning, Anmälning **N:1** Evenemang). **MANDATORY** relation med Besökare och Evenemang. 
+**Registrations**: En eller flera anmälningar måste vara kopplad till en besökare, och en eller flera anmälningar måste vara kopplad till en 
+evenemang. Använd detta som kopplingsentitet mellan Attendees och Events, eftersom Attendees och Events har M:N relationer. 
+(Attendees **1:N** Registrations, Registrations **N:1** Eveents). **MANDATORY** relation med Attendees och Events. 
 
-**Evenemang & Besökare:** En besökare kan anmäla sig till många evenemang och ett evenemang kan ha många besökare. Därför har Besökare och 
-Evenemang en M:N-relation som löses genom Anmälning.
-(Besökare **M:N** Evenemang <-- Problem!). Evenemang: **OPTIONAL** relation med Anmälning & kategori, **MANDATORY** relation med arrangör. 
+**Events & Attendees:** En besökare kan anmäla sig till många evenemang och ett evenemang kan ha många besökare. Därför har Attendees och 
+Events en M:N-relation som löses genom Registrations.
+(Attendees **M:N** Events <-- Problem!). Events: **OPTIONAL** relation med Registrations & Categories, **MANDATORY** relation med Organizer. 
 
-**Kategori:** En kategori kan ha noll eller många evenemang, men varje evenemang måste tillhöra exakt en kategori. (Kategori 1:N Evenemang).
-**OPTIONAL** relation med evenemang. 
+**Categories:** En kategori kan ha noll eller många evenemang, men varje evenemang måste tillhöra exakt en kategori. (Categories 1:N Events).
+**OPTIONAL** relation med Events. 
 
-**Arrangör:** En arrangör kan ansvara för noll eller många evenemang, men varje evenemang måste ha exakt en arrangör. (Arrangör 1:N Evenemang).
-**OPTIONAL** relation med evenemang.
+**Organizer:** En arrangör kan ansvara för noll eller många evenemang, men varje evenemang måste ha exakt en arrangör. (Arrangör 1:N Events).
+**OPTIONAL** relation med Events.
 
 ## Öppna frågor
 
