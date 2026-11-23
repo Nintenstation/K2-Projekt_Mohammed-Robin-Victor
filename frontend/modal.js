@@ -89,6 +89,7 @@ function openDetailModal(eventTitle) {
         modalDesc.textContent = eventInfo.description;
 
         detailModal.style.display = 'flex';
+        closeDetailsBtn.focus();
     }
 }
 
@@ -113,6 +114,7 @@ function openBookingModal(eventTitle) {
         eventChoiceDropdown.value = eventTitle;
     }
     bookingModal.style.display = 'flex';
+    closeBookingBtn.focus();
 }
 
 closeBookingBtn.addEventListener('click', closeBookingModal);
