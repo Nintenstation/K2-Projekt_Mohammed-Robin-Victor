@@ -8,37 +8,56 @@ const phoneConfirmation = document.querySelector("#phone-confirmation");
 const spotsConfirmation = document.querySelector("#spots-confirmation");
 const finalConfirmation = document.querySelector("#final-confirmation");
 const form = document.querySelector("#booking-form");
+
+//Hämtar element för att kunna öppna bokningsmodalen via navigeringslänken.
+const navBookLink = document.querySelector("#nav-book-link");
+
 //Hämtar element för att kunna söka efter evenemang.
 const eventSearch = document.querySelector("#event-search");
 const eventCards = document.querySelectorAll(".event-card");
 const searchStatus = document.querySelector("#search-status");
-//Hämtar element för att kunna öppna bokningsmodalen via navigeringslänken.
-const navBookLink = document.querySelector("#nav-book-link");
 
-// Hanterar sökningen efter evenemang.
-eventSearch.addEventListener("input", function() {
+//Deklarera och initialisera värden för HTML-element som berör kategori-filtern
+const categorySelector = document.getElementById("category-filter");
+const categoryButton = document.getElementById("category-filter-button");
+
+//Filterar evenemang baserat på söktext och kategori. Om inga evenemang matchar, visas ett meddelande.
+function filterEvents() {
     const searchText = eventSearch.value.toLowerCase().trim();
+    const selectedCategory = categorySelector.value;
+    let visibleCount = 0;
 
     eventCards.forEach(function(card) {
         const eventName = card.querySelector("h3").textContent.toLowerCase();
+        const eventCategory = card.dataset.category;
+        const matchesSearch = eventName.includes(searchText);
+        let matchesCategory = false;
 
-        if (eventName.includes(searchText)) {
+        //Tittar om det valda evenemanget matchar den valda kategorin. 
+        if (selectedCategory === "" || eventCategory === selectedCategory) {
+            matchesCategory = true;
+        }
+        
+        //Om både söktext och kategori matchar, visas evenemanget. Annars döljs det.
+        if (matchesCategory && matchesSearch) {
             card.style.display = "";
+            visibleCount++;
         } else {
             card.style.display = "none";
         }
     });
 
-    const visibleEvents = Array.from(eventCards).filter(function(card) {
-        return card.style.display !== "none";
-    });
-
-    if (visibleEvents.length === 0) {
-        searchStatus.textContent = "Inga evenemang hittades. Försök med en annan sökning.";
+    if (visibleCount === 0) {
+        searchStatus.textContent = "Inga evenemang hittades. Försök med en annan sökning eller kategori.";
     } else {
         searchStatus.textContent = "";
     }
-});
+}
+
+//Kör samma funktion både när man skriver i sökfältet och när man klickar på Filtrera
+eventSearch.addEventListener("input", filterEvents);
+categoryButton.addEventListener("click", filterEvents);
+
 
 //Hanterar bokningsknapparna för att öppna bokningsmodalen.
 bookingButtons.forEach(function(button) {
@@ -247,70 +266,3 @@ async function loadEventList(){
 }
 
 apiLoadButton.addEventListener('click', loadEventList);
-
-//Deklarera och initialisera värden för HTML-element som berör kategori-filtern
-const categorySelector = document.getElementById("category-filter");
-const categoryButton = document.getElementById("category-filter-button");
-const categoryStatus = document.getElementById("category-filter-status");
-const categoryList = document.getElementById("category-filter-list");
-
-
-//Event listener för filtreringsknappen för kategori, inkluderar hämtandet av värden från select elementen på början
-categoryButton.addEventListener("click", e => {
-    const selectedCategory = categorySelector.value;
-    categoryList.replaceChildren();
-
-    if(selectedCategory === "music"){
-        categoryStatus.textContent = "Följande evenemang för Musik:";
-
-        const liveConcert = document.createElement("li");
-        const liveConcertLink = document.createElement("a");
-        liveConcertLink.textContent = "Livekonsert";
-        liveConcertLink.setAttribute("href", "#live-concert");
-
-        categoryList.append(liveConcert);
-        liveConcert.append(liveConcertLink);
-    } else if(selectedCategory === "sport"){
-        categoryStatus.textContent = "Förljande evenemang för Sport:";
-
-        const footballTournament = document.createElement("li");
-        const footballTournamentLink = document.createElement("a");
-        footballTournamentLink.textContent = "Fotbollsturnering";
-        footballTournamentLink.setAttribute("href", "#football-tournament");
-
-        categoryList.append(footballTournament);
-        footballTournament.append(footballTournamentLink);
-    } else if(selectedCategory === "culture"){
-        categoryStatus.textContent = "Följande evenemang för Kultur: ";
-
-        const artExhibition = document.createElement("li");
-        const artExhibitionLink = document.createElement("a");
-        artExhibitionLink.textContent = "Konstutställning";
-        artExhibitionLink.setAttribute("href", "#art-exhibition");
-
-        const movieNight = document.createElement("li");
-        const movieNightLink = document.createElement("a");
-        movieNightLink.textContent = "Movie Night";
-        movieNightLink.setAttribute("href", "#movie-night");
-        
-        categoryList.append(artExhibition);
-        artExhibition.append(artExhibitionLink);
-        
-        categoryList.append(movieNight);
-        movieNight.append(movieNightLink);
-    } else if(selectedCategory === "family"){
-        categoryStatus.textContent = "Följande evenemang för Familj: ";
-
-        const familyDay = document.createElement("li");
-        const familyDayLink = document.createElement("a");
-        familyDayLink.textContent = "Familjedag";
-        familyDayLink.setAttribute("href", "#family-day");
-
-        categoryList.append(familyDay);
-        familyDay.append(familyDayLink);
-    } else if(selectedCategory === "adventure"){
-        categoryStatus.textContent = "Oj då - det finns inga evenemang för Äventyr just nu!";
-    } else if(selectedCategory === ""){
-        categoryStatus.textContent = "Du har inte valt kategori! Bläddra och välj kategori, sedan tryck på \"filtrera\" knappen.";
-    }
-}); 
