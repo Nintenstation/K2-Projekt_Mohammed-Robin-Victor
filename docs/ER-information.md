@@ -21,7 +21,9 @@ Events:
 	- EventTime
 	- Location
 	- Price
+	- Capacity
 	- CoverImageUrl
+	- LastUpdated
 
 Categories:
 	PkCategoryId
