@@ -53,7 +53,7 @@ features for it. Make sure to have Live Server installed.
 
 The SQL files associated with this project exist in the “database” folder, and are written specifically in Transact-SQL. In order to use 
 and run the queries, it is therefore recommended to use a program called “SQL server management studio”, which was the database manager used 
-to create the relational database and all of its SQL files and queries. ** IMPORTANT **: SQL-file “01-schema.sql” must be run first, and 
+to create the relational database and all of its SQL files and queries. **IMPORTANT**: SQL-file “01-schema.sql” must be run first, and 
 then “02-data.sql” file. This is to create both the database itself but also to insert all the necessary values/data. This is necessary for 
 all of the other queries to work.
 
@@ -78,7 +78,7 @@ files for creating a view, procedure, and trigger, to give more features for the
 The external API used in this project (located inside “eventflow-api” map) is within the intention of testing how to implement 
 asynchronous programming into JavaScript, as well as how to use API in code to exchange data and let software components communicate and 
 trade data (in the form of JSON, for this project). This API was used for a button on the web page that fetches a list of fictional events, 
-with states of loading, success, empty, and error, utilizing HTTP-responses. ** Keep note ** that this is an external API which needs to be 
+with states of loading, success, empty, and error, utilizing HTTP-responses. **Keep note** that this is an external API which needs to be 
 run locally, so it comes with limitations. Instructions below for how to implement this and get it running API.
 
 ### Requirements
@@ -112,3 +112,24 @@ If the API is working, the events will be displayed in JSON format.
 | `/api/events/9999` | Tests a 404 error. |
 | `/api/test/empty` | Tests an empty response. |
 | `/api/test/error` | Tests a simulated 500 error. |
+
+### Safety and integrity
+
+This local API is safe and does not include any sensitive data. The programmed mechanisms make sure that the API will deliver the requested
+information safely and with minimal error or corruption. For example the button for activating the API (the one that brings a list of
+fictional events) is disabled during the process, and will reactivate only after the process is finished, regardless of success or failure
+of fetching presentable data. The HTTP-requests and HTTP-responses do not rely on sensitive or personal information.
+
+---
+
+## Teamwork method
+
+The team responsible for this project were operating on "Github flow", where every individual focused on working within their seperate branch
+for a specific task, and were not able to do changes on the main branch directly without approval. All stages and commits of development
+must be performed through a Pull Request, and requires the approval of the rest of the team. That way, the main branch contains verified
+and documented stages of development that are safe and present a certified and working form of software. Everyone in the team is up-to-date
+with each other. Furthermore the team implements an agile method of work, particularly Scrum, that allowed the team to constantly re-evaluate 
+both the work itself and the teamwork retrospective that would deliver and improve the product. The team focused on individual features
+that are related to each other in the form of quick sprints of development, and utilized the creation and reading of user stories to clarify
+needed features. A Github Projects board template is associated with this project, and shows many of the ideas and features that were 
+created, modified, and integrated along the way.
