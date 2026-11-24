@@ -75,6 +75,12 @@ files for creating a view, procedure, and trigger, to give more features for the
 ---
 ## How to run Local API
 
+The external API used in this project (located inside “eventflow-api” map) is within the intention of testing how to implement 
+asynchronous programming into JavaScript, as well as how to use API in code to exchange data and let software components communicate and 
+trade data (in the form of JSON, for this project). This API was used for a button on the web page that fetches a list of fictional events, 
+with states of loading, success, empty, and error, utilizing HTTP-responses. ** Keep note ** that this is an external API which needs to be 
+run locally, so it comes with limitations. Instructions below for how to implement this and get it running API.
+
 ### Requirements
 
 - Git
