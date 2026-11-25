@@ -64,12 +64,9 @@ all of the other queries to work.
 - Terminal that supports git commands
 
 ### Opening SQL files and running quries
-1: If you haven’t, install Microsoft SQL Server Management Studio. Once installed, choose your local remote server, which makes it possible to create and manage a relational database.
-
-2: If you haven’t, clone the Github repository for this project by opening a terminal compatible with installed git commands, and type and enter the following: “git clone https://github.com/Nintenstation/K2-Projekt_Mohammed-Robin-Victor.git”.
-
-3: Open SQL Server Management Studio. Select “File” in the top-left corner, and then “Open” and then “File”. Go to the “database” folder, and select the “01-schema.sql” file. Once selected, click “Execute” on the user interface of SQL Server Management Studio. This will create the database and its tables and columns.
-
+1. If you haven’t, install Microsoft SQL Server Management Studio. Once installed, choose your local remote server, which makes it possible to create and manage a relational database.
+2. If you haven’t, clone the Github repository for this project by opening a terminal compatible with installed git commands, and type and enter the following: “git clone https://github.com/Nintenstation/K2-Projekt_Mohammed-Robin-Victor.git”.
+3. Open SQL Server Management Studio. Select “File” in the top-left corner, and then “Open” and then “File”. Go to the “database” folder, and select the “01-schema.sql” file. Once selected, click “Execute” on the user interface of SQL Server Management Studio. This will create the database and its tables and columns.
 4. Repeat the process above, but choose “02-data.sql” this time. Execute again. This will insert all the data in their respective tables.
 
 Now that there is a complete relational database installed and managed, choose any other SQL-file in the folder to run queries. There are 
