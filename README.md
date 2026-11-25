@@ -28,7 +28,7 @@ and JavaScript files to create a responsive and interactive web page for the pro
 contains the API and necessary steps to activate and use the local API found within the project. The “K2-Projekt” is a folder for a C# file 
 and its projects file, which went mostly unmodified throughout development.
 
----
+
 ## How to install and run Eventflow
 
 ### Requirements
@@ -42,13 +42,13 @@ and its projects file, which went mostly unmodified throughout development.
 ### Installation process & guide
 1. Open the terminal and go to a folder of your choice.
 2. Clone the Github repository for this project by typing “ git clone https://github.com/Nintenstation/K2-Projekt_Mohammed-Robin-Victor.git” and click enter.
-3. Inside the cloned repository will be a folder called “frontend” which you need to open with Visual Studio Code. You can do so with commands on terminal (cd commands until you reach the “frontend” map, then “code .” to start it). Alternatively, a simpler way to do this is to choose  “open folder” on Visual Studio Code (which exists under  “File” on top-left corner) and open the “frontend” folder.
-4. Once you are inside, simply right-click on the index.html file and choose “Open with Live Server. 
+4. Inside the cloned repository will be a folder called “frontend” which you need to open with Visual Studio Code. You can do so with commands on terminal (cd commands until you reach the “frontend” map, then “code .” to start it). Alternatively, a simpler way to do this is to choose  “open folder” on Visual Studio Code (which exists under  “File” on top-left corner) and open the “frontend” folder.
+5. Once you are inside, simply right-click on the index.html file and choose “Open with Live Server. 
 
 If you followed the steps correctly, you should now have the web application for this project, as well as the responsive and interactive 
 features for it. Make sure to have Live Server installed.
 
----
+
 ## How to run SQL query files
 
 The SQL files associated with this project exist in the “database” folder, and are written specifically in Transact-SQL. In order to use 
@@ -65,14 +65,17 @@ all of the other queries to work.
 
 ### Opening SQL files and running quries
 1: If you haven’t, install Microsoft SQL Server Management Studio. Once installed, choose your local remote server, which makes it possible to create and manage a relational database.
+
 2: If you haven’t, clone the Github repository for this project by opening a terminal compatible with installed git commands, and type and enter the following: “git clone https://github.com/Nintenstation/K2-Projekt_Mohammed-Robin-Victor.git”.
+
 3: Open SQL Server Management Studio. Select “File” in the top-left corner, and then “Open” and then “File”. Go to the “database” folder, and select the “01-schema.sql” file. Once selected, click “Execute” on the user interface of SQL Server Management Studio. This will create the database and its tables and columns.
+
 4. Repeat the process above, but choose “02-data.sql” this time. Execute again. This will insert all the data in their respective tables.
 
 Now that there is a complete relational database installed and managed, choose any other SQL-file in the folder to run queries. There are 
 files for creating a view, procedure, and trigger, to give more features for the database. Otherwise you can run your own queries as well.
 
----
+
 ## How to run Local API
 
 The external API used in this project (located inside “eventflow-api” map) is within the intention of testing how to implement 
@@ -120,7 +123,6 @@ information safely and with minimal error or corruption. For example the button 
 fictional events) is disabled during the process, and will reactivate only after the process is finished, regardless of success or failure
 of fetching presentable data. The HTTP-requests and HTTP-responses do not rely on sensitive or personal information.
 
----
 
 ## Teamwork method
 
