@@ -74,6 +74,9 @@ Knappen för att hämta JSON-data från API:n kommer att kopplas av under exekve
 input). Sedan kopplas det igen efter exekvering är slut, oavsett om HTTP-responsen ger fel eller en lyckad resultat. Denna mekanism är
 inkluderad för att användaren kommer inte råka klicka igen och återställa funktionen som exekveras, eller att onöding information hämtas.
 
+Samtidigt innehåller denna externa API:n inga känsliga eller personliga information. Det förekommer inga nycklar eller token när API:n framkallas och producerar
+resultat på frontend-sidan. Inget av informationen innehåller känslig data som kan skada användaren.
+
 ## Kända begränsningar
 Informationen som finns för evenemang är testexempel, och är fiktiva. Dessutom är det beroende på en extern API.
 
