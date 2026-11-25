@@ -12,10 +12,15 @@ Det viktigaste är att den kombinerar sökningen med TRIM() och LEN() > 0.
 Detta löser problemet vi hade där ett tomt mellanslag (' ') annars matchade evenemang som "Movie Night". 
 */
 
-CREATE PROCEDURE dbo.usp_GetEventByTitleTrim
+CREATE OR ALTER PROCEDURE dbo.usp_GetEventByTitleTrim
     @SearchTerm NVARCHAR(150)
 AS
 BEGIN
+    DECLARE @SafeSearch NVARCHAR(450) = @SearchTerm;
+    SET @SafeSearch = REPLACE(@SafeSearch, '[', '[[]');
+    SET @SafeSearch = REPLACE(@SafeSearch, '%', '[%]');
+    SET @SafeSearch = REPLACE(@SafeSearch, '_', '[_]');
+
     SELECT 
         e.Title AS EvenemangsTitelAllTrim,
         e.Description AS Beskrivning,
@@ -27,7 +32,7 @@ BEGIN
     FROM Events AS e
     INNER JOIN Categories AS c 
         ON e.CategoryId = c.CategoryId
-    WHERE e.Title LIKE '%' + @SearchTerm + '%' 
+    WHERE e.Title LIKE '%' + @SafeSearch + '%' 
     AND LEN(TRIM(@SearchTerm)) > 0
     ORDER BY e.EventDate, e.EventTime;
 END;
@@ -46,6 +51,8 @@ EXEC dbo.usp_GetEventByTitleTrim @SearchTerm = 'i';
 -- Resultat: Visar alla evenemang som innehåller bokstaven "i".
 EXEC dbo.usp_GetEventByTitleTrim @SearchTerm = 'LIVE'; 
 -- Resultat: Visar 1 rad ("Livekonsert").
+EXEC dbo.usp_GetEventByTitleTrim @SearchTerm = '%'; 
+-- Resultat: Visar 0 rader (tomt resultat).
 GO
 
 -- ALTERNATIV: 1. Stored Procedure: Exakt titel (skiftlägeskänslig)
