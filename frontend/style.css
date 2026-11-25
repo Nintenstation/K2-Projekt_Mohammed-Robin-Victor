@@ -259,3 +259,9 @@ button:hover {
 #booking-form p:empty {
     display: none;
 }
+
+:focus-visible {
+    outline: 3px solid #434000;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px #fff;
+}
