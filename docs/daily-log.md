@@ -1,3 +1,27 @@
+## Daily Scrum – datum 26-11-25
+
+### Framsteg mot sprintmålet
+Vi bedömer att de obligatoriska kraven för projektet är färdigställda.
+
+
+### Arbete till nästa avstämning
+
+Granska resterande pull requests, göra tester, sprint retrospective och planera redovisningen.
+
+### Hinder eller risker
+
+Inga i nuläget.
+
+### Hjälp eller beslut som behövs
+
+Redovisningsordningen.
+
+### Förändring i planen eller tavlan
+Inga förändringar.
+
+
+---
+
 ## Daily Scrum – datum 26-11-18
 
 ### Framsteg mot sprintmålet
