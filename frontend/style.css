@@ -39,8 +39,10 @@ footer p {
 
 .controls-row {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 1.5rem;
 }
 
 .search-container, .filter-container {
@@ -63,17 +65,11 @@ footer p {
     margin-top: 0;
 }
 
-.controls-row {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
 .event-list {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .event-card {
@@ -118,10 +114,7 @@ button:hover {
   white-space: pre-line;
 }
 
-.event-card:target {
-    animation: highlighter 4s ease-out;
-}
-
+/* 2 kort i rad på datorskärm */
 @media (min-width: 700px) {
     .event-list {
         display: grid;
@@ -135,21 +128,14 @@ button:hover {
 
     .controls-row {
         flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
     }
 }
 
+/* 3 kort i rad på datorskärm */
 @media (min-width: 1024px) {
     .event-list {
-        grid-template-columns: repeat(3, 1fr); /* 3 kort i rad på datorskärm */
+        grid-template-columns: repeat(3, 1fr); 
     }
-}
-
-@keyframes highlighter {    
-    0% {background: lightgreen;}
-    50% {background: darkgreen;}
-    100% {background: lightgreen;}
 }
 
 /* Designar sökfältet */

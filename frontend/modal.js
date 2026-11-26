@@ -7,6 +7,8 @@ const eventsData = [
         location: 'Malmö Kulturhus',
         price: '150.00 kr',
         spots: 120,
+        organizer: 'Malmö Kulturhus',
+        category: 'Musik',
         image: 'images/concert.jpg'
     },
     {
@@ -17,6 +19,8 @@ const eventsData = [
         location: 'Malmö Idrottsplats',
         price: '50.00 kr',
         spots: 1,
+        organizer: 'Malmö Idrottsförening',
+        category: 'Sport',
         image: 'images/football.jpg'
     },
     {
@@ -27,6 +31,8 @@ const eventsData = [
         location: 'Galleri Malmö',
         price: 'Gratis',
         spots: 200,
+        organizer: 'Malmö Kulturhus',
+        category: 'Kultur',
         image: 'images/art.jpg'
     },
     {
@@ -37,6 +43,8 @@ const eventsData = [
         location: 'Folkets Park',
         price: 'Gratis',
         spots: 500,
+        organizer: 'Event Malmö',
+        category: 'Familj',
         image: 'images/family.jpg'
     },
     {
@@ -47,6 +55,8 @@ const eventsData = [
         location: 'Malmö Filmfestival',
         price: '259.00 kr',
         spots: 80,
+        organizer: 'Malmö Kulturhus',
+        category: 'Kultur',
         image: 'images/movie.jpg'
     }
 ];
@@ -60,6 +70,8 @@ const modalTime = document.getElementById('modal-time');
 const modalLocation = document.getElementById('modal-location');
 const modalPrice = document.getElementById('modal-price');
 const modalSpots = document.getElementById('modal-spots');
+const modalOrganizer = document.getElementById('modal-organizer');
+const modalCategory = document.getElementById('modal-category');
 const modalDesc = document.getElementById('modal-description');
 // Stänger modalen när man klickar på stäng-knappen eller bokningsknappen
 const closeDetailsBtn = document.querySelector('.close-detail');
@@ -84,6 +96,8 @@ function openDetailModal(eventTitle) {
         modalDate.textContent = eventInfo.date;
         modalTime.textContent = eventInfo.time;
         modalLocation.textContent = eventInfo.location;
+        modalOrganizer.textContent = eventInfo.organizer;
+        modalCategory.textContent = eventInfo.category;
         modalPrice.textContent = eventInfo.price;
         modalSpots.textContent = eventInfo.spots;
         modalDesc.textContent = eventInfo.description;
